@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/01/23 17:37:18 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:19:14 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 
 //Funtions
 
-typedef struct node
+typedef struct	node
 {
-	int pre;
-	int	content;
-	int	next;
-	
-}	node;
+	int			value;
+	int			index;
+	struct node	*next;
+	struct node	*prev;
+}				node;
 
 
 #endif
