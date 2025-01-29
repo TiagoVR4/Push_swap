@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/01/23 16:50:37 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:06:09 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	node	*stack_a;
+	t_lst	*stack_a;
 
 	stack_a = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
