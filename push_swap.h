@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/01/29 15:09:09 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/04 12:30:55 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 # include "libft/libft.h"
 
-//Funtions
-t_lst	*new_node(char *str);
-
-typedef struct	s_lst
+typedef struct	t_list
 {
 	int				value;
 	int				index;
-	struct s_lst	*next;
-	struct s_lst	*prev;
-}					t_lst;
+	struct t_list	*next;
+	struct t_list	*prev;
+}					t_list;
+
+//Funtions
+t_list	*new_node(char *str);
+
+void	add_to_stack(t_list *stack, char *new);
 
 #endif

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/* 
 int main(int argc, char **argv)
 {
 	t_lst	*stack_a;
@@ -33,4 +33,4 @@ int main(int argc, char **argv)
 	//push_swap(agrc, stack_a)
 	//free_stack(stack_a)
 	return (0);
-}
+} */
