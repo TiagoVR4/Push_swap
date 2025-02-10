@@ -6,46 +6,53 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/04 13:06:04 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:41:53 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*new_node(char *str)
+t_node	*new_node(char *str)
 {
-	static int	i;
 	int			n;
-	t_list		*value;
+	t_node		*node;
 
-	n = ft_atoi(str);
-	value = (t_list *)malloc(sizeof(t_list));
-	if(!value)
+	if (!str)
 		return (NULL);
-	value->value = n;
-	value->next = NULL;
-	value->index = i++;
-	value->prev = NULL;
-	return (value);
+	n = ft_atoi(str);
+	node = (t_node *)malloc(sizeof(t_node));
+	if(!node)
+		return (NULL);
+	node->value = n;
+	node->index = -1;
+	node->chunk = -1;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }
 
-void	add_to_stack(t_list *stack, char *new)
+void	add_node(t_node **stack, char *new)
 {
-	t_list	*val;
+	t_node	*node;
 
-	val = new_node(new);
+	node = new_node(new);
 	if (!stack)
 	{
-		stack = val;
-		return ;
+		*stack = node;
+		node->next = node;
+		node->prev = node;
 	}
-	while (stack->next != NULL)
-		stack = stack->next;
-	val->prev = stack;
-	stack->next = val;
+	else
+	{
+		t_node *last = (*stack)-> prev;
+		last->next = node;
+		node->prev = last;
+		node->next = *stack;
+		(*stack)->prev = node;
+	}
 }
 /* 
-t_list	create_stack(t_list **stack, char **argv)
+t_node	create_stack(t_node **stack, char **argv)
 {
 	size_t	i;
 
@@ -61,16 +68,16 @@ t_list	create_stack(t_list **stack, char **argv)
 int	main() // test for new_node
 {
 	char *str = "2";
-	t_list	*something = new_node(str);
+	t_node	*something = new_node(str);
 
 	printf ("%d", something->value);
 	return (0);
 } */
-
+/* 
 int main() // test for add_to_stack
 {
 	char *str = "22";
-	t_list	*a = new_node(str);
+	t_node	*a = new_node(str);
 	add_to_stack(a, "54");
 
 	printf("value: %d\n", a->value);
@@ -78,4 +85,4 @@ int main() // test for add_to_stack
 	printf("prev: %s\n", (char *)a->prev);
 	printf("index: %d\n", a->index);
 	return (0);
-}
+} */

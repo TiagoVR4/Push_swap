@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/01/29 15:06:09 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:05:28 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		ft_printf("Error");
 		return (0);
 	}
-	if (/* sorted */)
+	if (sorted)
 	{
 		//freestack(stack_a)
 		return (0);

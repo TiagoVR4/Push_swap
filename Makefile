@@ -6,40 +6,60 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/02/04 12:41:48 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/02/10 13:47:38 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+MAKE	= make -C
 
-LIBFT = ./libft/libft.a
+NAME	= push_swap
+
+LIBS_PATH = lib
+LIBFT_PATH = $(LIBS_PATH)/libft
+LIBFT_ARC = $(LIBFT_PATH)/libft.a
 
 
 CC =	cc
-CFLAGS =	-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = create_stack.c
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+all: deps $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
-	$(cc) $(CFLAGS) $(OBJ) -Llibft -lft -o $(NAME)
+deps:
+	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; \
+		else echo "[libft] folder found 🖔"; fi
+	@echo " [$(GRN)Nothing to be done!$(D)]"
+
+$(NAME): $(OBJ) $(LIBFT_ARC)
+	$(CC) $(CFLAGS) $(OBJ) -Llibft -lft -o $(NAME)
 
 %.o: %.c
-	$(cc) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	$(MAKE) -C ./libft
+
+get_libft:
+	@echo "Getting Libft"
+	git clone git@github.com:TiagoVR4/libft.git $(LIBFT_PATH)
+	@echo "Done downloading Libft"
+
+$(LIBFT_ARC):
+	$(MAKE) $(LIBFT_PATH) bonus
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	$(MAKE) fclean -C ./libft
 	rm -f $(NAME)
+	$(MAKE) $(LIBFT_PATH) fclean
 
+libclean: fclean
+	rm -fr $(LIBS_PATH)
+	
 re: fclean all
 
 .PHONY: all clean fclean re
