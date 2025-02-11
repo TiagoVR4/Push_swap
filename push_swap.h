@@ -6,14 +6,14 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/10 13:41:53 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:48:47 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "lib/libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct	t_node
 {
@@ -27,6 +27,6 @@ typedef struct	t_node
 //Funtions
 t_node	*new_node(char *str);
 
-void	add_to_stack(t_node *stack, char *new);
+void	add_node(t_node **stack, char *new);
 
 #endif

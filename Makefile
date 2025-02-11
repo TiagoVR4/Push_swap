@@ -6,7 +6,7 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/02/10 13:47:38 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/02/11 15:46:01 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,8 @@ MAKE	= make -C
 
 NAME	= push_swap
 
-LIBS_PATH = lib
-LIBFT_PATH = $(LIBS_PATH)/libft
+LIBFT_PATH = libft
 LIBFT_ARC = $(LIBFT_PATH)/libft.a
-
 
 CC =	cc
 CFLAGS = -Wall -Wextra -Werror
@@ -33,22 +31,19 @@ deps:
 		else echo "[libft] folder found 🖔"; fi
 	@echo " [$(GRN)Nothing to be done!$(D)]"
 
-$(NAME): $(OBJ) $(LIBFT_ARC)
-	$(CC) $(CFLAGS) $(OBJ) -Llibft -lft -o $(NAME)
+$(NAME): $(LIBFT_ARC) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_ARC) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LIBFT):
-	$(MAKE) -C ./libft
 
 get_libft:
 	@echo "Getting Libft"
 	git clone git@github.com:TiagoVR4/libft.git $(LIBFT_PATH)
 	@echo "Done downloading Libft"
 
-$(LIBFT_ARC):
-	$(MAKE) $(LIBFT_PATH) bonus
+$(LIBFT_ARC): 
+	$(MAKE) $(LIBFT_PATH) all
 
 clean:
 	rm -f $(OBJ)
@@ -58,7 +53,7 @@ fclean: clean
 	$(MAKE) $(LIBFT_PATH) fclean
 
 libclean: fclean
-	rm -fr $(LIBS_PATH)
+	rm -fr $(LIBFT_PATH)
 	
 re: fclean all
 

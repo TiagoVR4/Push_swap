@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/10 13:41:53 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:12:37 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_node	*new_node(char *str)
 {
-	int			n;
-	t_node		*node;
+	int		n;
+	t_node	*node;
 
 	if (!str)
 		return (NULL);
@@ -36,7 +36,9 @@ void	add_node(t_node **stack, char *new)
 	t_node	*node;
 
 	node = new_node(new);
-	if (!stack)
+	if (!node)
+		return ;
+	if (!*stack)
 	{
 		*stack = node;
 		node->next = node;
@@ -44,7 +46,7 @@ void	add_node(t_node **stack, char *new)
 	}
 	else
 	{
-		t_node *last = (*stack)-> prev;
+		t_node *last = (*stack)->prev;
 		last->next = node;
 		node->prev = last;
 		node->next = *stack;
@@ -73,16 +75,17 @@ int	main() // test for new_node
 	printf ("%d", something->value);
 	return (0);
 } */
-/* 
-int main() // test for add_to_stack
+
+// test for add_node
+int main()
 {
 	char *str = "22";
 	t_node	*a = new_node(str);
-	add_to_stack(a, "54");
+	add_node(&a, "54");
 
 	printf("value: %d\n", a->value);
 	printf("next: %s\n", (char *)a->next);
 	printf("prev: %s\n", (char *)a->prev);
 	printf("index: %d\n", a->index);
 	return (0);
-} */
+}
