@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/11 16:11:25 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:13:30 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,30 +53,41 @@ void	add_node(t_node **stack, char *new)
 		(*stack)->prev = node;
 	}
 }
-/* 
-t_node	create_stack(t_node **stack, char **argv)
+void	free_stack(t_node **stack)
 {
-	size_t	i;
-
-	i = 0;
 	if (!stack)
-		stack == new_node(argv[0]);
-	while(argv[i] != '\0')
-	{
+		return ;
 
+	t_node	*current = *stack;
+	t_node	*next;
+	
+	while (stack != NULL)
+	{
+		next = stack->next;
+		free(stack);
+		stack = next;
 	}
-} */
+	
+
+}
 
 // test for add_node
 int main()
 {
-	char *str = "22";
-	t_node	*a = new_node(str);
-	add_node(&a, "54");
-
-	printf("value: %d\n", a->value);
-	printf("next: %s\n", (char *)a->next);
-	printf("prev: %s\n", (char *)a->prev);
-	printf("index: %d\n", a->index);
+	
+	t_node	*stack = NULL;
+	t_node	*a = stack;
+	
+	add_node(&a, "3");
+	add_node(&a, "9");
+	add_node(&a, "6");
+	add_node(&a, "2");
+	add_node(&a, NULL);
+	
+	while (a->next != NULL)
+	{
+		ft_printf("value: %d\n Index: %d\n Chunk: %d\n", a->value, a->index, a->chunk);
+		a = a->next;
+	}
 	return (0);
 }
