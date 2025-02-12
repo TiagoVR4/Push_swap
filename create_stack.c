@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/11 13:12:37 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:11:25 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,6 @@ t_node	create_stack(t_node **stack, char **argv)
 	{
 
 	}
-} */
-/* 
-int	main() // test for new_node
-{
-	char *str = "2";
-	t_node	*something = new_node(str);
-
-	printf ("%d", something->value);
-	return (0);
 } */
 
 // test for add_node

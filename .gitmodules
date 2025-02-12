@@ -1,3 +1,6 @@
 [submodule "libft"]
 	path = libft
 	url = git@github.com:TiagoVR4/libft.git
+[submodule "ft_printf"]
+	path = ft_printf
+	url = git@github.com:TiagoVR4/ft_printf.git
