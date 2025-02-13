@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/12 14:13:30 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:16:33 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,16 @@ void	add_node(t_node **stack, char *new)
 	}
 	else
 	{
-		t_node *last = (*stack)->prev;
+		t_node *last;
+		
+		last = (*stack)->prev;
 		last->next = node;
 		node->prev = last;
 		node->next = *stack;
 		(*stack)->prev = node;
 	}
 }
+//double free or corruption! More than 1000 errors 
 void	free_stack(t_node **stack)
 {
 	if (!stack)
@@ -60,34 +63,47 @@ void	free_stack(t_node **stack)
 
 	t_node	*current = *stack;
 	t_node	*next;
-	
-	while (stack != NULL)
+	t_node	*first = current;
+	current = current->next;
+	free(current->prev);
+	while (current != first)
 	{
-		next = stack->next;
+		next = (*stack)->next;
 		free(stack);
-		stack = next;
+		(*stack) = next;
 	}
-	
-
+	free(stack);
+	free(current);
+	free(next);
+	free(first);
 }
 
-// test for add_node
 int main()
 {
 	
 	t_node	*stack = NULL;
-	t_node	*a = stack;
 	
-	add_node(&a, "3");
-	add_node(&a, "9");
-	add_node(&a, "6");
-	add_node(&a, "2");
-	add_node(&a, NULL);
+	add_node(&stack, "3");
+	add_node(&stack, "9");
+	add_node(&stack, "6");
+	add_node(&stack, "2");
 	
-	while (a->next != NULL)
+	t_node	*first = stack;
+	ft_printf("value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
+	stack = stack->next; 
+	while (stack != first)
 	{
-		ft_printf("value: %d\n Index: %d\n Chunk: %d\n", a->value, a->index, a->chunk);
-		a = a->next;
+		ft_printf("value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
+		stack = stack->next;
 	}
+
+	//test free_stack
+	free_stack(&stack);
+	if (!stack)
+	{
+		ft_printf("Is clean!");
+	}
+	else
+		ft_printf("still dirty ");
 	return (0);
 }

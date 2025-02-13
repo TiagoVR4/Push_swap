@@ -6,7 +6,7 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/02/12 12:01:34 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/02/13 20:14:40 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ deps:
 		else echo "[libft] folder found 🖔"; fi
 	@if test ! -d "$(FT_PRINTF_PATH)"; then make get_ft_printf; \
 		else echo "[ft_printf] folder found 🖔"; fi
-	@echo " [$(GRN)Nothing to be done!$(D)]"
+	@echo "[$(GRN)Nothing to be done!$(D)]"
 
 $(NAME): $(LIBFT_ARC) $(FT_PRINTF_ARC) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_ARC) $(FT_PRINTF_ARC) -o $(NAME)

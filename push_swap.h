@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/12 12:03:01 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:59:37 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ typedef struct	t_node
 t_node	*new_node(char *str);
 
 void	add_node(t_node **stack, char *new);
+void	free_stack(t_node **stack);
 
 #endif
