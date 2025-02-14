@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/13 20:16:33 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:22:33 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,26 @@ void	add_node(t_node **stack, char *new)
 //double free or corruption! More than 1000 errors 
 void	free_stack(t_node **stack)
 {
-	if (!stack)
+	t_node	*current;
+	t_node	*next_node;
+	t_node	*start;
+	int		flag;
+
+	if (!stack || !*stack)
 		return ;
 
-	t_node	*current = *stack;
-	t_node	*next;
-	t_node	*first = current;
-	current = current->next;
-	free(current->prev);
-	while (current != first)
+	current = *stack;
+	start = *stack;
+	flag = 0;
+	while (flag == 0)
 	{
-		next = (*stack)->next;
-		free(stack);
-		(*stack) = next;
+		next_node = current->next;
+		free(current);
+		if (next_node == start)
+			flag = 1;
+		current = next_node;
 	}
-	free(stack);
-	free(current);
-	free(next);
-	free(first);
+	*stack = NULL;
 }
 
 int main()
@@ -89,21 +91,15 @@ int main()
 	add_node(&stack, "2");
 	
 	t_node	*first = stack;
-	ft_printf("value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
+	ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
 	stack = stack->next; 
 	while (stack != first)
 	{
-		ft_printf("value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
+		ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
 		stack = stack->next;
 	}
 
 	//test free_stack
-	free_stack(&stack);
-	if (!stack)
-	{
-		ft_printf("Is clean!");
-	}
-	else
-		ft_printf("still dirty ");
+	free_stack(&first);
 	return (0);
 }
