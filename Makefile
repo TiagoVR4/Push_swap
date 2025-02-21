@@ -33,52 +33,57 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: deps $(NAME)
 
-deps:
-	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; \
-		else echo "[libft] folder found 🖔"; fi
-	@if test ! -d "$(FT_PRINTF_PATH)"; then make get_ft_printf; \
-		else echo "[ft_printf] folder found 🖔"; fi
+deps: get_libft get_ft_printf
 	@echo "[$(GRN)Nothing to be done!$(D)]"
 
-$(NAME): $(LIBFT_ARC) $(FT_PRINTF_ARC) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_ARC) $(FT_PRINTF_ARC) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 get_libft:
-	@echo "Getting Libft"
-	git clone git@github.com:TiagoVR4/libft.git $(LIBFT_PATH)
-	@echo "Done downloading Libft"
+	@if [ -d "$(LIBFT_PATH)" ]; then \
+		echo "[libft] folder found 🖔"; \
+	else \
+		echo "Getting Libft"; \
+		git clone https://github.com/TiagoVR4/libft.git $(LIBFT_PATH); \
+		echo "Done downloading Libft"; \
+	fi
 
 get_ft_printf:
-	@echo "Getting ft_printf"
-	git clone git@github.com:TiagoVR4/ft_printf.git $(FT_PRINTF_PATH)
-	@echo "Done downloading ft_printf"
+	@if [ -d "$(FT_PRINTF_PATH)" ]; then \
+		echo "[ft_printf] folder found 🖔"; \
+	else \
+		echo "Getting ft_printf"; \
+		git clone https://github.com/TiagoVR4/ft_printf.git $(FT_PRINTF_PATH); \
+		echo "Done downloading ft_printf"; \
+	fi
 
-$(LIBFT_ARC): 
-	$(MAKE) $(LIBFT_PATH) all
+$(NAME): $(LIBFT_ARC) $(FT_PRINTF_ARC) $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT_ARC) $(FT_PRINTF_ARC) -o $(NAME)
 
-$(FT_PRINTF_ARC): 
-	$(MAKE) $(FT_PRINTF_PATH) all
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(LIBFT_ARC):
+	@$(MAKE) $(LIBFT_PATH) all
+
+$(FT_PRINTF_ARC):
+	@$(MAKE) $(FT_PRINTF_PATH) all
 
 #------------------------------------------------------------------------------#
 #								CLEANING RULES									   #
 #------------------------------------------------------------------------------#
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) $(LIBFT_PATH) fclean
-	$(MAKE) $(FT_PRINTF_PATH) fclean
+	@rm -f $(NAME)
+	@$(MAKE) $(LIBFT_PATH) fclean
+	@$(MAKE) $(FT_PRINTF_PATH) fclean
 
 libclean: fclean
-	rm -fr $(LIBFT_PATH)
+	@rm -fr $(LIBFT_PATH)
 
 printfclean: fclean
-	rm -fr $(FT_PRINTF_PATH)
+	@rm -fr $(FT_PRINTF_PATH)
 	
 re: fclean all
 
