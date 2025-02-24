@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/24 16:05:28 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/24 18:10:25 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_node	*new_node(char *str);
 void	add_node(t_node **stack, char *new);
 void	free_stack(t_node **stack);
 void	swap(t_node **stack);
-void    push(t_node **src, t_node **dest)
+void    push(t_node **src, t_node **dest);
+void    rotate(t_node **stack);
 
 #endif
