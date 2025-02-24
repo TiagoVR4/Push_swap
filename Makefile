@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
+#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/02/13 20:14:40 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/02/24 16:05:43 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT_ARC = $(LIBFT_PATH)/libft.a
 FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
 
-SRC = create_stack.c
+SRC = create_stack.c operations/swap.c operations/push.c
 
 OBJ = $(SRC:.c=.o)
 
