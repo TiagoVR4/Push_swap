@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:44:02 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/24 14:42:43 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/25 11:21:02 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,25 @@
 
 void	swap(t_node **stack)
 {
-    t_node	*first;
-    t_node	*second;
-    int		temp_index;
+	t_node	*first;
+	t_node	*second;
+	int		temp_index;
 
-    first = *stack;
-    second = first->next;
-    first->prev->next = second;
-    second->next->prev = first;
-    first->next = second->next;
-    second->prev = first->prev;
-    second->next = first;
-    first->prev = second;
-    *stack = second;
+	if (!*stack || !(*stack)->next || (*stack)->next == *stack)
+    	return;
+	first = *stack;
+	second = first->next;
+	first->prev->next = second;
+	second->next->prev = first;
+	first->next = second->next;
+	second->prev = first->prev;
+	second->next = first;
+	first->prev = second;
+	*stack = second;
 
-    temp_index = first->index;
-    first->index = second->index;
-    second->index = temp_index;
+	temp_index = first->index;
+	first->index = second->index;
+	second->index = temp_index;
 }
 
 /*

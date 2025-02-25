@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 18:13:07 by coder             #+#    #+#             */
-/*   Updated: 2025/02/24 18:37:00 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/25 11:14:38 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rrotate(t_node **stack)
+void	rrotate(t_node **stack)
 {
-    *stack = (*stack)->prev;
+	if (!&stack || !(*stack)->next)
+		return ;
+	*stack = (*stack)->prev;
 }
