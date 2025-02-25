@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/24 18:10:25 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/25 11:25:53 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
+# include <limits.h>
 
 typedef struct	t_node
 {

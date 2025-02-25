@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/14 18:22:33 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/25 11:00:41 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_node	*new_node(char *str)
 {
-	int		n;
 	t_node	*node;
+	int		n;
 
 	if (!str)
 		return (NULL);
