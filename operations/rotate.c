@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:19:48 by coder             #+#    #+#             */
-/*   Updated: 2025/02/25 11:14:27 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:53:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate(t_node **stack)
 {
-	if (!&stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	*stack = (*stack)->next;
 }
