@@ -6,12 +6,15 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:42:06 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/26 17:52:38 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/26 18:38:23 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//Ola Tiago do futuro, espero que esteja tudo bem consigo, venho por este meio relembrar \
+para apagar os writes antes de enviar para avaliacao. Cumprimentos Tiago do passado :) \
+Ola Tiago do futuro eh a Jessica, alias va a merda! voce pode fazercom que as funcoes estejam todas em \
+uma unica linha e assim pode te "salvar" linhas e cabelos brancos ate ja _|_ se precisar de ajuda me avisa
 int	ft_parsing(t_node **stack_a, int argc, char **argv)
 {
 	int		i;
@@ -32,17 +35,18 @@ int	ft_parsing(t_node **stack_a, int argc, char **argv)
 			{
 				write(2, "not a int", 9);
 				free_stack(stack_a);
-				return (0);
+				exit;
 			}
 			if (duplicate(str))
 			{
 				write(2, "is Duplicated", 13);
 				free_stack(stack_a);
-				return (0);
+				exit (0);
 			}
 			i++;
 		}
 	}
+	if ()
 }
 
 int	is_not_number(char	*str)
