@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/25 11:25:53 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:02:23 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	free_stack(t_node **stack);
 void	swap(t_node **stack);
 void    push(t_node **src, t_node **dest);
 void    rotate(t_node **stack);
+void	rrotate(t_node **stack);
 
 #endif
