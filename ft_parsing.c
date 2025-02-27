@@ -6,44 +6,41 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:42:06 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 14:02:29 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:02:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//Ola Tiago do futuro, espero que esteja tudo bem consigo, venho por este meio relembrar \
-para apagar os writes antes de enviar para avaliacao. Cumprimentos Tiago do passado :) \
-Ola Tiago do futuro eh a Jessica, alias va a merda! voce pode fazercom que as funcoes estejam todas em \
-uma unica linha e assim pode te "salvar" linhas e cabelos brancos ate ja _|_ se precisar de ajuda me avisa
+
 int	ft_parsing(t_node **stack_a, int argc, char **argv)
 {
 	int	i;
 	
 	i = 0;
-	if (argc < 2)
-		return (0);
+	if (argc < 2 || (argc == 2 && contains_space(argv[1]) == 1))
+		return (1);
 	else if (argc == 2 && contains_space(argv[1]) == 0)
 	{
 		char	**str;
 
-		str = ft_split(argv[1], " ");
-		while (str[i] != '\0')
+		str = ft_split(argv[1], ' ');
+		while (str[i])
 		{
 			if (is_not_number(str[i]) || is_not_int(str[i]))
 			{
-				write(2, "not a int", 9);
+				write(2, "not a int\n", 10);
 				free_stack(stack_a);
 				return (1);
 			}
-			if (duplicate(str))
-			{
-				write(2, "is Duplicated", 13);
-				free_stack(stack_a);
-				return (1);
-			}
-			add_node(stack_a, str);
+			add_node(stack_a, str[i]);
 			i++;
 			free(str[i]);
+		}
+		if (duplicate(str))
+		{
+			write(2, "is Duplicated\n", 14);
+			free_stack(stack_a);
+			return (1);
 		}
 	}
 	else
@@ -51,21 +48,22 @@ int	ft_parsing(t_node **stack_a, int argc, char **argv)
 		i = 1;
 		while (i > argc)
 		{
-			if (is_not_number(argv[i]) || is_not_int(argv[i]))
+			if (is_not_number(argv[i])|| is_not_int(argv[i]))
 			{
-				write(2, "not a int", 9);
-				free_stack(stack_a);
-				return (1);
-			}
-			if (duplicate(argv[i]))
-			{
-				write(2, "is Duplicated", 13);
+				write(2, "not a int\n", 10);
 				free_stack(stack_a);
 				return (1);
 			}
 			add_node(stack_a, argv[i]);
 			i++;
 		}
+		if (duplicate(argv))
+		{
+			write(2, "is Duplicated\n", 14);
+			free_stack(stack_a);
+			return (1);
+		}
+
 	}
 	return (0);
 }
@@ -90,14 +88,12 @@ int	is_not_number(char	*str)
 	
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
-	{
 		i++;
-	}
 	if (!str[i])
 		return (1);
 	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
+	{	
+		if (ft_isdigit(str[i] == 0))
 			return (1);
 		i++;
 	}
@@ -121,10 +117,10 @@ int	duplicate(char **str)
 
 	i = 0;
 	j = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		j = i + 1;
-		while (str[j] != '\0')
+		while (str[j])
 		{
 			if(ft_atoi(str[i]) == ft_atoi(str[j]))
 				return (1);
@@ -134,3 +130,4 @@ int	duplicate(char **str)
 	}
 	return (0);
 }
+	

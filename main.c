@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 14:32:05 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/27 15:38:37 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	}
 	*/
 	//push_swap(stack_a, stack_b);
-	free_stack(stack_a);
+	free_stack(&stack_a);
 	//free_stack(stack_b);
 	return (0);
-} 
+}

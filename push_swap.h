@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/26 18:02:23 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/27 14:53:41 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,12 @@ void	swap(t_node **stack);
 void    push(t_node **src, t_node **dest);
 void    rotate(t_node **stack);
 void	rrotate(t_node **stack);
+
+int		ft_parsing(t_node **stack_a, int argc, char **argv);
+int		contains_space(char *str);
+int		is_not_number(char	*str);
+int		is_not_int(char *str);
+int		duplicate(char **str);
+int 	main(int argc, char **argv);
 
 #endif

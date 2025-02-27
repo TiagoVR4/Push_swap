@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 14:33:49 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/27 15:37:58 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	add_node(t_node **stack, char *new)
 		(*stack)->prev = node;
 	}
 }
-//double free or corruption! More than 1000 errors 
 void	free_stack(t_node **stack)
 {
 	t_node	*current;

@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/02/26 17:32:25 by coder            ###   ########.fr        #
+#    Updated: 2025/02/27 15:43:13 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
 
 SRC = create_stack.c operations/swap.c operations/push.c operations/rotate.c \
-	operations/rrotate.c
+	operations/rrotate.c ft_parsing.c main.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -30,7 +30,7 @@ OBJ = $(SRC:.c=.o)
 #------------------------------------------------------------------------------#
 
 CC =	cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: deps $(NAME)
 
