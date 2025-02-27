@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 18:13:07 by coder             #+#    #+#             */
-/*   Updated: 2025/02/25 11:14:38 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:32:34 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rrotate(t_node **stack)
 {
-	if (!&stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	*stack = (*stack)->prev;
 }

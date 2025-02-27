@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/25 11:00:41 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:33:49 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	free_stack(t_node **stack)
 	}
 	*stack = NULL;
 }
-
+/*
 int main()
 {
 	
@@ -102,4 +102,4 @@ int main()
 	//test free_stack
 	free_stack(&first);
 	return (0);
-}
+}*/
