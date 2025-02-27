@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:42:06 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 12:32:16 by coder            ###   ########.fr       */
+/*   Updated: 2025/02/27 14:02:29 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ int	duplicate(char **str)
 		j = i + 1;
 		while (str[j] != '\0')
 		{
-			if(str[i] == str[j])
+			if(ft_atoi(str[i]) == ft_atoi(str[j]))
 				return (1);
 			j++;
 		}
