@@ -60,21 +60,23 @@ void	free_stack(t_node **stack)
 	t_node	*current;
 	t_node	*next_node;
 	t_node	*start;
-	int		flag;
 
 	if (!stack || !*stack)
 		return ;
 
 	current = *stack;
 	start = *stack;
-	flag = 0;
-	while (flag == 0)
+	next_node = current->next;
+	while (current != NULL)
 	{
-		next_node = current->next;
 		free(current);
 		if (next_node == start)
-			flag = 1;
-		current = next_node;
+			current = NULL;
+		else
+		{
+			current = next_node;
+			next_node = current->next;
+		}
 	}
 	*stack = NULL;
 }
