@@ -35,12 +35,13 @@ void	swap(t_node **stack);
 void    push(t_node **src, t_node **dest);
 void    rotate(t_node **stack);
 void	rrotate(t_node **stack);
+void	push_swap(t_node stack_a, t_node stack_b);
 
-int		ft_parsing(t_node **stack_a, int argc, char **argv);
+int		ft_parsing(t_node **stack, int argc, char **argv);
+int		build_stack(t_node **stack, char **array, int i);
 int		contains_space(char *str);
-int		is_not_number(char	*str);
-int		is_not_int(char *str);
-int		duplicate(char **str);
+int		invalid_number(char *str);
+int		duplicate(t_node **stack);
 int 	main(int argc, char **argv);
 
 #endif

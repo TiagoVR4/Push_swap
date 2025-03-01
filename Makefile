@@ -21,7 +21,7 @@ FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
 
 SRC = create_stack.c operations/swap.c operations/push.c operations/rotate.c \
-	operations/rrotate.c ft_parsing.c main.c
+	operations/rrotate.c ft_parsing.c push_swap.c
 
 OBJ = $(SRC:.c=.o)
 
