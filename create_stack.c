@@ -80,27 +80,25 @@ void	free_stack(t_node **stack)
 	}
 	*stack = NULL;
 }
-/*
-int main()
-{
-	
-	t_node	*stack = NULL;
-	
-	add_node(&stack, "3");
-	add_node(&stack, "9");
-	add_node(&stack, "6");
-	add_node(&stack, "2");
-	
-	t_node	*first = stack;
-	ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
-	stack = stack->next; 
-	while (stack != first)
-	{
-		ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
-		stack = stack->next;
-	}
 
-	//test free_stack
-	free_stack(&first);
-	return (0);
-}*/
+int	stack_size(t_node **stack)
+{
+	t_node	*current;
+	t_node	*start;
+	int		count;
+
+	if (!stack || !*stack)
+		return ;
+
+	current = *stack;
+	start = *stack;
+	count = 0;
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+		if (current == start)
+			current = NULL;
+	}
+	return (count);
+}
