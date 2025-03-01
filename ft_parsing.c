@@ -15,58 +15,26 @@
 int	ft_parsing(t_node **stack_a, int argc, char **argv)
 {
 	int	i;
-	
+	char	**array;
+
 	i = 0;
+	array = NULL;
 	if (argc < 2)
 		return (0);
-	else if (argc == 2 && contains_space(argv[1]) == 0)
+	if (argc == 2 && contains_space(argv[i]))
 	{
-		char	**str;
-
-		str = ft_split(argv[1], ' ');
-		while (str[i])
-		{
-			if (is_not_number(str[i]) || is_not_int(str[i]))
-			{
-				write(2, "not a int\n", 10);
-				free_stack(stack_a);
-				free(str);
-				return (1);
-			}
-			add_node(stack_a, str[i]);
-			if (duplicate(stack_a))
-			{
-				write(2, "is Duplicated\n", 14);
-				free_stack(stack_a);
-				free(str);
-				return (1);
-			}
-			i++;
-		}
-		free(str);
+		array = ft_split(argv[1], ' ');
 	}
 	else
 	{
+		array = argv;
 		i = 1;
-		while (i < argc)
-		{
-			if (is_not_number(argv[i])|| is_not_int(argv[i]))
-			{
-				write(2, "not a int\n", 10);
-				free_stack(stack_a);
-				return (1);
-			}
-			add_node(stack_a, argv[i]);
-			if (duplicate(stack_a))
-			{
-				write(2, "is Duplicated\n", 14);
-				free_stack(stack_a);
-				return (1);
-			}
-			i++;
-		}
 	}
-	return (0);
+	while (array[i])
+	{
+		if 
+	}
+	
 }
 
 int	contains_space(char *str)
@@ -83,28 +51,22 @@ int	contains_space(char *str)
 	return (1);
 }
 
-int	is_not_number(char	*str)
+int	invalid_number(char *str)
 {
-	int	i;
-	
+	int		i;
+	long	n;
+
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!str[i])
 		return (1);
 	while (str[i])
-	{	
-		if (ft_isdigit(str[i]) == 0)
+	{
+		if (!ft_isdigit(str[i]))
 			return (1);
 		i++;
 	}
-	return (0);
-}
-
-int	is_not_int(char *str)
-{
-	long 	n;
-
 	n = ft_atol(str);
 	if (n > INT_MAX || n < INT_MIN)
 		return (1);
