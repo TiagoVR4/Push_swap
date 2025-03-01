@@ -17,8 +17,8 @@ int	ft_parsing(t_node **stack_a, int argc, char **argv)
 	int	i;
 	
 	i = 0;
-	if (argc < 2 || (argc == 2 && contains_space(argv[1]) == 1))
-		return (1);
+	if (argc < 2)
+		return (0);
 	else if (argc == 2 && contains_space(argv[1]) == 0)
 	{
 		char	**str;
@@ -30,23 +30,25 @@ int	ft_parsing(t_node **stack_a, int argc, char **argv)
 			{
 				write(2, "not a int\n", 10);
 				free_stack(stack_a);
+				free(str);
 				return (1);
 			}
 			add_node(stack_a, str[i]);
+			if (duplicate(stack_a))
+			{
+				write(2, "is Duplicated\n", 14);
+				free_stack(stack_a);
+				free(str);
+				return (1);
+			}
 			i++;
-			free(str[i]);
 		}
-		if (duplicate(str))
-		{
-			write(2, "is Duplicated\n", 14);
-			free_stack(stack_a);
-			return (1);
-		}
+		free(str);
 	}
 	else
 	{
 		i = 1;
-		while (i > argc)
+		while (i < argc)
 		{
 			if (is_not_number(argv[i])|| is_not_int(argv[i]))
 			{
@@ -55,15 +57,14 @@ int	ft_parsing(t_node **stack_a, int argc, char **argv)
 				return (1);
 			}
 			add_node(stack_a, argv[i]);
+			if (duplicate(stack_a))
+			{
+				write(2, "is Duplicated\n", 14);
+				free_stack(stack_a);
+				return (1);
+			}
 			i++;
 		}
-		if (duplicate(argv))
-		{
-			write(2, "is Duplicated\n", 14);
-			free_stack(stack_a);
-			return (1);
-		}
-
 	}
 	return (0);
 }
@@ -93,7 +94,7 @@ int	is_not_number(char	*str)
 		return (1);
 	while (str[i])
 	{	
-		if (ft_isdigit(str[i] == 0))
+		if (ft_isdigit(str[i]) == 0)
 			return (1);
 		i++;
 	}
@@ -110,24 +111,24 @@ int	is_not_int(char *str)
 	return (0);
 }
 
-int	duplicate(char **str)
+int	duplicate(t_node **stack)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i])
+	t_node *current;
+	t_node *next_node;
+	
+	if (!(*stack) || (*stack)->next == *stack)
+		return (0);
+	current = *stack;
+	while (current->next != *stack)
 	{
-		j = i + 1;
-		while (str[j])
+		next_node = current->next;
+		while (next_node != *stack)
 		{
-			if(ft_atoi(str[i]) == ft_atoi(str[j]))
+			if (current->value == next_node->value)
 				return (1);
-			j++;
+			next_node = next_node->next;
 		}
-		i++;
+		current = current->next;
 	}
 	return (0);
 }
-	
