@@ -12,31 +12,50 @@
 
 #include "push_swap.h"
 
-int	ft_parsing(t_node **stack_a, int argc, char **argv)
+int	ft_parsing(t_node **stack, int argc, char **argv)
 {
-	int	i;
 	char	**array;
+	int		i;
+	int 	result;
 
-	i = 0;
-	array = NULL;
+	i = 1;
+	result = 0;
+	array = argv;
 	if (argc < 2)
 		return (0);
-	if (argc == 2 && contains_space(argv[i]))
+	if (argc == 2 && !contains_space(argv[1]))
 	{
 		array = ft_split(argv[1], ' ');
+		i = 0;
 	}
-	else
-	{
-		array = argv;
-		i = 1;
-	}
-	while (array[i])
-	{
-		if 
-	}
-	
+	result = build_stack(stack, array, i);
+	 if (array != argv)
+	 	free(array);
+	return (result);
 }
 
+int	build_stack(t_node **stack, char **array, int i)
+{
+	int	start;
+
+	start = i;
+	while (array[i])
+	{
+		if (invalid_number(array[i]))
+		{
+			free_stack(stack);
+			return (1);
+		}
+		add_node(stack, array[i]);
+		if (duplicate(stack))
+		{
+			free_stack(stack);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
 int	contains_space(char *str)
 {
 	int	i;
