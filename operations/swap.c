@@ -34,6 +34,27 @@ void	swap(t_node **stack)
 	first->index = second->index;
 	second->index = temp_index;
 }
+void	call_swap(t_node **stack_a, t_node **stack_b, char flag)
+{
+	if (flag == 'a')
+	{
+		swap(stack_a);
+		ft_printf("sa\n");
+	}
+	else if (flag == 'b')
+	{
+		swap(stack_b);
+		ft_printf("sb\n");
+	}
+	else if (flag == 's')
+	{
+		swap(stack_a);
+		swap(stack_b);
+		ft_printf("ss\n");
+	}
+	else
+		ft_printf("invalid flag\n");
+}
 
 /*
 int main()
