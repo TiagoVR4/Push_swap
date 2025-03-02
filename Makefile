@@ -6,7 +6,7 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/02 18:12:28 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/03/02 18:26:50 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
 
 SRC = create_stack.c operations/swap.c operations/push.c operations/rotate.c \
-	operations/rrotate.c ft_parsing.c push_swap.c stack_size.c
+	operations/rrotate.c ft_parsing.c push_swap.c sort/mini_sort.c
 
 OBJ = $(SRC:.c=.o)
 

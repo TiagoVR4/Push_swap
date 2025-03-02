@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/02 18:12:19 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:26:52 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ t_node	*new_node(char *str);
 
 void	add_node(t_node **stack, char *new);
 void	free_stack(t_node **stack);
-void	swap(t_node **stack);
-void    push(t_node **src, t_node **dest);
-void    rotate(t_node **stack);
-void	rrotate(t_node **stack);
+void	call_swap(t_node **stack_a, t_node **stack_b, char flag);
+void	call_push(t_node **stack_a, t_node **stack_b, char flag);
+void	call_rotate(t_node **stack_a, t_node **stack_b, char flag);
+void	call_rrotate(t_node **stack_a, t_node **stack_b, char flag);
 void	push_swap(t_node **stack_a, t_node **stack_b);
+void	mini_sort(t_node **stack);
 
 int		ft_parsing(t_node **stack, int argc, char **argv);
 int		build_stack(t_node **stack, char **array, int i);
