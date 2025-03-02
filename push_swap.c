@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 15:38:37 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/02 18:26:51 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_node stack_a, t_node stack_b)
+void	push_swap(t_node **stack_a, t_node **stack_b)
 {
-	if ()
+	if (stack_size(stack_a) <= 1)
+		return ;
+	if (stack_size(stack_a) == 2)
+	{
+		if ((*stack_a)->value > (*stack_a)->next->value)
+			call_swap(stack_a, stack_b, 'a');
+	}
+	else if (stack_size(stack_a) == 3)
+		mini_sort(stack_a);
+	else
+		big_sort(stack_a, stack_b);
+
 }
 
 int main(int argc, char **argv)
