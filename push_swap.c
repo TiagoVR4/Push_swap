@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/02 18:26:51 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:47:53 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	push_swap(t_node **stack_a, t_node **stack_b)
 {
-	if (stack_size(stack_a) <= 1)
-		return ;
 	if (stack_size(stack_a) == 2)
 	{
 		if ((*stack_a)->value > (*stack_a)->next->value)
@@ -36,12 +34,12 @@ int main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
+		exit (1);
 	if (ft_parsing(&stack_a, argc, argv) || argv[1] == NULL)
 	{
 		free_stack(&stack_a);
-		write(2, "Error!", 6);
-		return (1);
+		write(2, "Error\n", 6);
+		exit (1);
 	}
 	/*
 	if (ft_sorted(stack_a))
