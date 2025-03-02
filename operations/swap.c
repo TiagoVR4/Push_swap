@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:44:02 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/25 11:21:02 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:11:02 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	swap(t_node **stack)
 	first->index = second->index;
 	second->index = temp_index;
 }
+
 void	call_swap(t_node **stack_a, t_node **stack_b, char flag)
 {
 	if (flag == 'a')

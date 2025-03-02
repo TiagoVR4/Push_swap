@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:42:14 by coder             #+#    #+#             */
-/*   Updated: 2025/02/25 11:18:23 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:48:56 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ void	push(t_node **src, t_node **dest)
 {
 	t_node	*first;
 	t_node	*second;
-	t_node	*dest_first;
   
 	if (!*src)
 		return ;
 	first = *src;
 	second = first->next;
-	dest_first = *dest;
 	if(first->next != first)
 	{
 		first->prev->next = second;
@@ -31,6 +29,16 @@ void	push(t_node **src, t_node **dest)
 	}
 	else
 		*src = NULL;
+	add_top(first, dest);
+}
+
+void	add_top(t_node *src, t_node **dest)
+{
+	t_node	*first;
+	t_node	*dest_first;
+
+	first = src;
+	dest_first = *dest;
 	if (dest_first == NULL)
 	{
 		*dest = first;
@@ -45,4 +53,20 @@ void	push(t_node **src, t_node **dest)
 		dest_first->prev = first;
 		*dest = first;
 	}
+}
+
+void	call_push(t_node **stack_a, t_node **stack_b, char flag)
+{
+	if (flag == 'a')
+	{
+		swap(stack_a);
+		ft_printf("pa\n");
+	}
+	else if (flag == 'b')
+	{
+		swap(stack_b);
+		ft_printf("pb\n");
+	}
+	else
+		ft_printf("invalid flag\n");
 }
