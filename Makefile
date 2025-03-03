@@ -6,7 +6,7 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/02 18:26:50 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/03/03 10:28:45 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,14 @@ LIBFT_ARC = $(LIBFT_PATH)/libft.a
 FT_PRINTF_PATH = ft_printf
 FT_PRINTF_ARC = $(FT_PRINTF_PATH)/libftprintf.a
 
-SRC = create_stack.c operations/swap.c operations/push.c operations/rotate.c \
-	operations/rrotate.c ft_parsing.c push_swap.c sort/mini_sort.c
+SRC =  push_swap.c \
+		create_stack.c \
+		ft_parsing.c \
+		operations/swap.c \
+		operations/push.c \
+		operations/rotate.c \
+		operations/rrotate.c \
+		sort/mini_sort.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -74,11 +80,13 @@ $(FT_PRINTF_ARC):
 
 clean:
 	@rm -f $(OBJ)
+	echo "[All .o files clean!]";
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) $(LIBFT_PATH) fclean
 	@$(MAKE) $(FT_PRINTF_PATH) fclean
+	echo "[All files clean!]";
 
 libclean: fclean
 	@rm -fr $(LIBFT_PATH)
@@ -87,5 +95,6 @@ printfclean: fclean
 	@rm -fr $(FT_PRINTF_PATH)
 	
 re: fclean all
+	echo "[All files are re-compiled!]";
 
 .PHONY: all clean fclean re
