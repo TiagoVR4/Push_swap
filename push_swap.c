@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/02 18:47:53 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/03 10:27:20 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	push_swap(t_node **stack_a, t_node **stack_b)
 	}
 	else if (stack_size(stack_a) == 3)
 		mini_sort(stack_a);
-	else
-		big_sort(stack_a, stack_b);
+	/* else
+		big_sort(stack_a, stack_b); */
 
 }
 
@@ -37,7 +37,6 @@ int main(int argc, char **argv)
 		exit (1);
 	if (ft_parsing(&stack_a, argc, argv) || argv[1] == NULL)
 	{
-		free_stack(&stack_a);
 		write(2, "Error\n", 6);
 		exit (1);
 	}
