@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/03 10:36:40 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/03 12:38:04 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		stack_size(t_node **stack);
 int		contains_space(char *str);
 int		invalid_number(char *str);
 int		duplicate(t_node **stack);
+int		sorted(t_node **stack);
 int 	main(int argc, char **argv);
 
 #endif
