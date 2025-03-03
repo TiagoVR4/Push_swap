@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/03 12:38:04 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/03 16:58:37 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	call_rotate(t_node **stack_a, t_node **stack_b, char flag);
 void	call_rrotate(t_node **stack_a, t_node **stack_b, char flag);
 void	push_swap(t_node **stack_a, t_node **stack_b);
 void	mini_sort(t_node **stack);
+void	medium_sort(t_node **stack_a, t_node **stack_b);
 
 int		ft_parsing(t_node **stack, int argc, char **argv);
 int		build_stack(t_node **stack, char **array, int i);

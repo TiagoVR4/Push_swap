@@ -6,7 +6,7 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/03 12:38:33 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/03/03 16:57:07 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC =  push_swap.c \
 		operations/rotate.c \
 		operations/rrotate.c \
 		sort/mini_sort.c \
+		sort/medium_sort.c \
 		sort/sorted.c \
 
 OBJ = $(SRC:.c=.o)
