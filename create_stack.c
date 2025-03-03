@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 15:37:58 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/03 10:19:58 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	stack_size(t_node **stack)
 
 	if (!stack || !*stack)
 		return ;
-
 	current = *stack;
 	start = *stack;
 	count = 0;
