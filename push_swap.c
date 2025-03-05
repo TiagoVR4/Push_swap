@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/03 16:56:02 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:08:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ int main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		exit (1);
 	}
-	/*
 	if (ft_sorted(stack_a))
 	{
 		free_stack(stack_a);
 		return (0);
 	}
-	*/
 	push_swap(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	//free_stack(stack_b);

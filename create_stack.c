@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/03 10:19:58 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/05 19:36:07 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,35 @@ int	stack_size(t_node **stack)
 			current = NULL;
 	}
 	return (count);
+}
+
+void	set_index(t_node **stack)
+{
+	t_node	*first;
+	t_node	*content;
+	t_node	*next_position;
+	int		flag;
+	int		i;
+	
+	flag = 0;
+	first = *stack;
+	content = *stack;
+	while(flag == 0)
+	{
+		i = 0;
+		flag = 0;
+		next_position = *stack;
+		while(flag == 0)
+		{
+			if (content->value > next_position->value)
+				i++;
+			next_position = next_position->next;
+			if (first == next_position)
+				flag = 1;
+		}
+		content->index = i;
+		content = content->next;
+		if (content == first)
+			flag = 1;
+	}
 }
