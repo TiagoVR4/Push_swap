@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/05 16:08:48 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/06 11:09:59 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	push_swap(t_node **stack_a, t_node **stack_b)
 			call_swap(stack_a, stack_b, 'a');
 	}
 	else if (stack_size(stack_a) == 3)
-		mini_sort(stack_a);
-	else if (stack_size(stack_a) == 4 || stack_size(stack_a) == 5)
-		medium_sort(stack_a, stack_b);
+		mini_sort(stack_a);	
+	/* else if (stack_size(stack_a) == 4 || stack_size(stack_a) == 5)
+		medium_sort(stack_a, stack_b); */
 }
 
 int main(int argc, char **argv)
@@ -39,13 +39,17 @@ int main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		exit (1);
 	}
-	if (ft_sorted(stack_a))
+	if (sorted(&stack_a))
 	{
-		free_stack(stack_a);
+		free_stack(&stack_a);
 		return (0);
 	}
+	set_index(&stack_a);
+	ft_printf("1st index %d\n", stack_a->index);
+	ft_printf("2nd index %d\n", stack_a->next->index);
+	ft_printf("3rd index %d\n", stack_a->prev->index);
 	push_swap(&stack_a, &stack_b);
 	free_stack(&stack_a);
-	//free_stack(stack_b);
+	free_stack(&stack_b);
 	return (0);
 }

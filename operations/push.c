@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:42:14 by coder             #+#    #+#             */
-/*   Updated: 2025/03/02 17:48:56 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:44:11 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void	call_push(t_node **stack_a, t_node **stack_b, char flag)
 {
 	if (flag == 'a')
 	{
-		swap(stack_a);
+		push(stack_b,stack_a);
 		ft_printf("pa\n");
 	}
 	else if (flag == 'b')
 	{
-		swap(stack_b);
+		push(stack_a, stack_b);
 		ft_printf("pb\n");
 	}
 	else
