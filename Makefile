@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
+#    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/05 15:07:27 by coder            ###   ########.fr        #
+#    Updated: 2025/03/06 11:05:45 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRC =  push_swap.c \
 		operations/rotate.c \
 		operations/rrotate.c \
 		sort/mini_sort.c \
-		sort/medium_sort.c \
 		sort/sorted.c \
 
 OBJ = $(SRC:.c=.o)
@@ -82,13 +81,13 @@ $(FT_PRINTF_ARC):
 
 clean:
 	@rm -f $(OBJ)
-	echo "[All .o files clean!]";
+	@echo "[All .o files clean! 🖔]";
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) $(LIBFT_PATH) fclean
 	@$(MAKE) $(FT_PRINTF_PATH) fclean
-	echo "[All files clean!]";
+	@echo "[All files clean! 🖔]";
 
 libclean: fclean
 	@rm -fr $(LIBFT_PATH)
@@ -97,6 +96,6 @@ printfclean: fclean
 	@rm -fr $(FT_PRINTF_PATH)
 	
 re: fclean all
-	echo "[All files are re-compiled!]";
+	@echo "[All files are re-compiled! 🖔]";
 
 .PHONY: all clean fclean re

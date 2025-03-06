@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:19:48 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/05 19:36:07 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/06 11:11:16 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,47 +88,45 @@ int	stack_size(t_node **stack)
 	int		count;
 
 	if (!stack || !*stack)
-		return ;
+		return (0);
 	current = *stack;
 	start = *stack;
 	count = 0;
-	while (current != NULL)
+	while (current)
 	{
 		count++;
 		current = current->next;
 		if (current == start)
-			current = NULL;
+			break ;
 	}
 	return (count);
 }
 
 void	set_index(t_node **stack)
 {
-	t_node	*first;
-	t_node	*content;
+	t_node	*current;
 	t_node	*next_position;
 	int		flag;
 	int		i;
 	
 	flag = 0;
-	first = *stack;
-	content = *stack;
+	current = *stack;
 	while(flag == 0)
 	{
 		i = 0;
-		flag = 0;
 		next_position = *stack;
 		while(flag == 0)
 		{
-			if (content->value > next_position->value)
+			if (current->value > next_position->value)
 				i++;
 			next_position = next_position->next;
-			if (first == next_position)
+			if (*stack == next_position)
 				flag = 1;
 		}
-		content->index = i;
-		content = content->next;
-		if (content == first)
+		current->index = i;
+		current = current->next;
+		flag = 0;
+		if (current == *stack)
 			flag = 1;
 	}
 }
