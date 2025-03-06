@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:44:02 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 16:00:08 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:09:57 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,36 +51,3 @@ void	call_swap(t_node **stack_a, t_node **stack_b, char flag)
 	else
 		ft_printf("invalid flag\n");
 }
-
-/*
-int main()
-{
-    t_node  *stack = NULL;
-    
-    add_node(&stack, "1");
-    add_node(&stack, "2");
-    add_node(&stack, "3");
-    add_node(&stack, "4");
-    
-    t_node	*first = stack;
-    ft_printf("Before the Swap:\n");
-	ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
-	stack = stack->next; 
-	while (stack != first)
-	{
-		ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
-		stack = stack->next;
-	}
-
-    swap(&stack);
-
-    t_node	*new_first = stack;
-    ft_printf("After the Swap: \n");
-	ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
-	stack = stack->next; 
-	while (stack != new_first)
-	{
-		ft_printf("Value: %d\n Index: %d\n Chunk: %d\n", stack->value, stack->index, stack->chunk);
-		stack = stack->next;
-	}
-}*/
