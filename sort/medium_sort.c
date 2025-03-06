@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 16:57:14 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 14:18:06 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:39:22 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ void	medium_sort(t_node **stack_a, t_node **stack_b)
 		pos++;
 	}
 	mini_sort(stack_a);
-	if(stack_size(*stack_b) == 2)
+	if(stack_size(stack_b) == 2)
 		call_push(stack_a, stack_b, 'a');
 	call_push(stack_a, stack_b, 'a');
 }
 void	index_top(t_node **stack_a, t_node **stack_b, int pos)
 {
-	if (pos <= stack_size(*stack_a) / 2)
+	if (pos <= stack_size(stack_a) / 2)
 	{
 		while (pos > 0)
 		{
-			call_rotate(*stack_a, stack_b, 'a');
+			call_rotate(stack_a, stack_b, 'a');
 			pos--;
 		}
 	}
 	else
 	{
-		pos = stack_size(*stack_a) - pos;
+		pos = stack_size(stack_a) - pos;
 		while (pos > 0)
 		{
 			call_rrotate(stack_a, stack_b, 'a');

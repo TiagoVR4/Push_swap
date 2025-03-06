@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 11:33:13 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:38:50 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	push_swap(t_node **stack_a, t_node **stack_b);
 void	mini_sort(t_node **stack);
 void	medium_sort(t_node **stack_a, t_node **stack_b);
 void	set_index(t_node **stack);
+void	index_top(t_node **stack_a, t_node **stack_b, int pos);
 
 int		ft_parsing(t_node **stack, int argc, char **argv);
 int		build_stack(t_node **stack, char **array, int i);
