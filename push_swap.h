@@ -39,7 +39,7 @@ void	call_rrotate(t_node **stack_a, t_node **stack_b, char flag);
 void	push_swap(t_node **stack_a, t_node **stack_b);
 void	mini_sort(t_node **stack);
 void	medium_sort(t_node **stack_a, t_node **stack_b);
-void	big_sort(t_node **stack_a, t_node **stack_b);
+void	turk_sort(t_node **stack_a, t_node **stack_b);
 void	assign_chunk(t_node **stack);
 void	assign_index(t_node **stack);
 void	index_top(t_node **stack_a, t_node **stack_b, int pos);
