@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:42:06 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/02/27 18:02:12 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/06 18:03:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ int	ft_parsing(t_node **stack, int argc, char **argv)
 
 int	build_stack(t_node **stack, char **array, int i)
 {
-	int	start;
-
-	start = i;
 	while (array[i])
 	{
 		if (invalid_number(array[i]))

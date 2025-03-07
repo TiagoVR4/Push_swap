@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
+#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/06 11:33:33 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/03/06 18:07:07 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC =  push_swap.c \
 		operations/rrotate.c \
 		sort/mini_sort.c \
 		sort/medium_sort.c \
+		sort/big_sort.c \
 		sort/sorted.c \
 
 OBJ = $(SRC:.c=.o)
