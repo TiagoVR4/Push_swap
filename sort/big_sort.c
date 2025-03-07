@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 16:35:45 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:49:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	big_sort(t_node **stack_a, t_node **stack_b)
-{
-	
-}
+//void	big_sort(t_node **stack_a, t_node **stack_b)
+//{
+//	assign_chunk(stack_a);
+//	if ((*stack_b)->value == 4)
+//		write (1, "something", 9);
+//}
 
 void	assign_chunk(t_node **stack)
 {
@@ -25,12 +27,18 @@ void	assign_chunk(t_node **stack)
 	t_node	*current;
 
 	n = stack_size(stack);
-	if (n <= 5)
+	num_chunks = ((n + 49) / 50);
+	if (num_chunks < 2)
 		num_chunks = 2;
-	else if (5 < n <= 100)
-		num_chunks = 5;
-	else
-		num_chunks = 10;
-		
-	chunk_size = 
+	chunk_size = n / num_chunks;
+	current = *stack;
+	while (current)
+	{
+		current->chunk = current->index / chunk_size;
+		if(current->chunk >= num_chunks)
+			current->chunk = num_chunks - 1;
+		current = current->next;
+		if (current == *stack)
+			break;
+	}
 }
