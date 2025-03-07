@@ -12,12 +12,10 @@
 
 #include "../push_swap.h"
 
-//void	big_sort(t_node **stack_a, t_node **stack_b)
-//{
-//	assign_chunk(stack_a);
-//	if ((*stack_b)->value == 4)
-//		write (1, "something", 9);
-//}
+void	turk_sort(t_node **stack_a, t_node **stack_b)
+{
+	
+}
 
 void	assign_chunk(t_node **stack)
 {
