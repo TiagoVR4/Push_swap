@@ -102,7 +102,7 @@ int	stack_size(t_node **stack)
 	return (count);
 }
 
-void	set_index(t_node **stack)
+void	assign_index(t_node **stack)
 {
 	t_node	*current;
 	t_node	*next_position;

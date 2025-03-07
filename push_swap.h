@@ -41,7 +41,7 @@ void	mini_sort(t_node **stack);
 void	medium_sort(t_node **stack_a, t_node **stack_b);
 void	big_sort(t_node **stack_a, t_node **stack_b);
 void	assign_chunk(t_node **stack);
-void	set_index(t_node **stack);
+void	assign_index(t_node **stack);
 void	index_top(t_node **stack_a, t_node **stack_b, int pos);
 
 int		ft_parsing(t_node **stack, int argc, char **argv);

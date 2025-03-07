@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 		free_stack(&stack_a);
 		return (0);
 	}
-	set_index(&stack_a);
+	assign_index(&stack_a);
 	assign_chunk(&stack_a);
 	ft_printf("Antes da ordenacao\n");
 	t_node	*first = stack_a;
