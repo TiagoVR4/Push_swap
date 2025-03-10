@@ -35,9 +35,19 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 		}
 		pos++;
 		current = current->next;
+		if (count_chunks(stack_a, current_chunk) == 0)
+			current_chunk++;
 	}
 	mini_sort(stack_a);
 }
+void	sort_b(t_node **stack)
+{
+	t_node	*current;
+
+	current = *stack;
+	if
+}
+
 int		count_chunks(t_node **stack, int current_chunk)
 {
 	t_node	*current;
@@ -45,23 +55,15 @@ int		count_chunks(t_node **stack, int current_chunk)
 
 	current = *stack;
 	count = 0;
-	while (current)
+	while (1)
 	{
 		if (current->chunk == current_chunk)
 			count++;
 		if (current == *stack)
 			break;
-			current = current->next;
+		current = current->next;
 	}
 	return (count);
-}
-
-void	sort_b(t_node **stack)
-{
-	t_node	*current;
-
-	current = *stack;
-	if
 }
 
 void	assign_chunk(t_node **stack)
