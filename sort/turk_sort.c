@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sort.c                                         :+:      :+:    :+:   */
+/*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 18:49:08 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/11 17:58:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,42 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 		}
 		pos++;
 		current = current->next;
-		if (count_chunks(stack_a, current_chunk) == 0)
-			current_chunk++;
+		if (current == *stack_a)
+		{
+			if (count_chunks(stack_a, current_chunk) == 0)
+				current_chunk++;
+		}
 	}
 	mini_sort(stack_a);
 }
+
 void	sort_b(t_node **stack)
 {
-	t_node	*current;
+	t_node	*first;
 
-	current = *stack;
-	if
+	first = *stack;
+	if (first->value < first->next->value)
+	{
+		if (first->value < first->prev->value)
+			call_swap(stack, NULL, 'b');
+			call_rotate(stack, NULL, 'b');
+		else if ((first->value < first->prev->value))
+			call_rrotate(stack, NULL, 'b');
+		else
+			call_swap(stack, NULL, 'b');
+	}
+	else
+	{
+		if (first->value < first->prev->value)
+			call_rotate(stack, NULL, 'b');
+		else if (first->next->value > first->prev->value)
+		{
+			call_swap(stack, NULL, 'b');
+			call_rrotate(stack, NULL, 'b');
+		}
+		else
+			call_rrotate(stack, NULL, 'b');
+	}
 }
 
 int		count_chunks(t_node **stack, int current_chunk)
