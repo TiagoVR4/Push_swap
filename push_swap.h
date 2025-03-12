@@ -42,8 +42,9 @@ void	medium_sort(t_node **stack_a, t_node **stack_b);
 void	turk_sort(t_node **stack_a, t_node **stack_b);
 void	assign_chunk(t_node **stack);
 void	assign_index(t_node **stack);
-void	index_top(t_node **stack_a, t_node **stack_b, int pos);
+void	execute_rotations(t_node **stack_a, t_node **stack_b, int pos);
 
+int		index_top(t_node **stack, int pos);
 int		ft_parsing(t_node **stack, int argc, char **argv);
 int		build_stack(t_node **stack, char **array, int i);
 int		stack_size(t_node **stack);
@@ -52,5 +53,6 @@ int		invalid_number(char *str);
 int		duplicate(t_node **stack);
 int		sorted(t_node **stack);
 int 	main(int argc, char **argv);
+int		count_chunks(t_node **stack, int current_chunk);
 
 #endif

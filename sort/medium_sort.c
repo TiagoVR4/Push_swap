@@ -25,7 +25,7 @@ void	medium_sort(t_node **stack_a, t_node **stack_b)
 	{
 		if (current->index == i)
 		{
-			index_top(stack_a, stack_b, pos);
+			execute_rotations(stack_a, stack_b, pos);
 			call_push(stack_a, stack_b, 'b');
 			i++;
 			pos = -1;
@@ -39,25 +39,40 @@ void	medium_sort(t_node **stack_a, t_node **stack_b)
 		call_push(stack_a, stack_b, 'a');
 	call_push(stack_a, stack_b, 'a');
 }
-void	index_top(t_node **stack_a, t_node **stack_b, int pos)
+void	execute_rotations(t_node **stack_a, t_node **stack_b, int pos)
 {
-	if (pos <= stack_size(stack_a) / 2)
+	int	count;
+
+	count = index_top(stack_a, pos);
+	if (count > 0)
 	{
-		while (pos > 0)
+		while (count > 0)
 		{
 			call_rotate(stack_a, stack_b, 'a');
-			pos--;
+			count--;
 		}
 	}
 	else
 	{
-		pos = stack_size(stack_a) - pos;
-		while (pos > 0)
+		while (count < 0)
 		{
 			call_rrotate(stack_a, stack_b, 'a');
-			pos--;
+			count++;
 		}
 	}
+
+}
+
+int	index_top(t_node **stack, int pos)
+{
+	int	count;
+
+	count = 0;
+	if (pos <= stack_size(stack) / 2)
+		count = pos;
+	else
+		count = -(stack_size(stack)) - pos;
+	return (count);
 }
 
 void	assign_chunk(t_node **stack)
