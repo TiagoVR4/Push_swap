@@ -27,50 +27,37 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	{
 		if (current->chunk == current_chunk)
 		{
-			index_top(stack_a, stack_b, pos);
-			call_push(stack_a, stack_b, 'b');
-			sort_b(stack_b);
-			pos = -1;
-			current = (*stack_a)->prev;
+			sort_b(stack_a, stack_b, pos);
+			pos = 0;
+			current = *stack_a;
 		}
-		pos++;
-		current = current->next;
-		if (current == *stack_a)
+		else
 		{
-			if (count_chunks(stack_a, current_chunk) == 0)
-				current_chunk++;
+			pos++;
+			current = current->next;
+		}
+			if (current == *stack_a)
+		{
+				if (count_chunks(stack_a, current_chunk) == 0)
+				{
+					current_chunk++;
+					current = *stack_a;
+					pos = 0;
+				}
 		}
 	}
 	mini_sort(stack_a);
 }
 
-void	sort_b(t_node **stack)
+void	sort_b(t_node **stack_a, t_node **stack_b, int pos)
 {
-	t_node	*first;
+	t_node	*temp;
+	int		rotations;
+	int		rb_count;
 
-	first = *stack;
-	if (first->value < first->next->value)
-	{
-		if (first->value < first->prev->value)
-			call_swap(stack, NULL, 'b');
-			call_rotate(stack, NULL, 'b');
-		else if ((first->value < first->prev->value))
-			call_rrotate(stack, NULL, 'b');
-		else
-			call_swap(stack, NULL, 'b');
-	}
-	else
-	{
-		if (first->value < first->prev->value)
-			call_rotate(stack, NULL, 'b');
-		else if (first->next->value > first->prev->value)
-		{
-			call_swap(stack, NULL, 'b');
-			call_rrotate(stack, NULL, 'b');
-		}
-		else
-			call_rrotate(stack, NULL, 'b');
-	}
+	temp = *stack_a;
+	rotations = index_top(stack_a, pos);
+	rb_count = 0;
 }
 
 int		count_chunks(t_node **stack, int current_chunk)
@@ -84,33 +71,10 @@ int		count_chunks(t_node **stack, int current_chunk)
 	{
 		if (current->chunk == current_chunk)
 			count++;
+		current = current->next;
 		if (current == *stack)
 			break;
-		current = current->next;
 	}
 	return (count);
 }
 
-void	assign_chunk(t_node **stack)
-{
-	int		n;
-	int		num_chunks;
-	int		chunk_size;
-	t_node	*current;
-
-	n = stack_size(stack);
-	num_chunks = ((n + 49) / 50);
-	if (num_chunks < 2)
-		num_chunks = 2;
-	chunk_size = n / num_chunks;
-	current = *stack;
-	while (current)
-	{
-		current->chunk = current->index / chunk_size;
-		if(current->chunk >= num_chunks)
-			current->chunk = num_chunks - 1;
-		current = current->next;
-		if (current == *stack)
-			break;
-	}
-}
