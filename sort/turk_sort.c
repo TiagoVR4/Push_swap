@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/11 17:58:43 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/13 12:48:06 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	int		current_chunk;
 	int		num_chunks;
 	int		pos;
+	int		target;
 	
 	current = *stack_a;
+	target = 0;
 	current_chunk = 0;
 	num_chunks = (stack_size(stack_a) + 49) / 50;
 	pos = 0;
@@ -27,7 +29,8 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	{
 		if (current->chunk == current_chunk)
 		{
-			sort_b(stack_a, stack_b, pos);
+			target = current->index;
+			sort_b(stack_a, stack_b, pos, target);
 			pos = 0;
 			current = *stack_a;
 		}
@@ -49,17 +52,6 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	mini_sort(stack_a);
 }
 
-void	sort_b(t_node **stack_a, t_node **stack_b, int pos)
-{
-	t_node	*temp;
-	int		rotations;
-	int		rb_count;
-
-	temp = *stack_a;
-	rotations = index_top(stack_a, pos);
-	rb_count = 0;
-}
-
 int		count_chunks(t_node **stack, int current_chunk)
 {
 	t_node	*current;
@@ -77,4 +69,3 @@ int		count_chunks(t_node **stack, int current_chunk)
 	}
 	return (count);
 }
-

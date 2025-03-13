@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 18:10:35 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/13 12:48:01 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ void	push_swap(t_node **stack_a, t_node **stack_b);
 void	mini_sort(t_node **stack);
 void	medium_sort(t_node **stack_a, t_node **stack_b);
 void	turk_sort(t_node **stack_a, t_node **stack_b);
+void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target);
 void	assign_chunk(t_node **stack);
 void	assign_index(t_node **stack);
 void	execute_rotations(t_node **stack_a, t_node **stack_b, int pos);
+void	combine_rotations(stack_a, stack_b, rot_a, rot_b);
+void	complete_rotations(stack_a, stack_b, rot_a, rot_b);
 
 int		index_top(t_node **stack, int pos);
 int		ft_parsing(t_node **stack, int argc, char **argv);
@@ -54,5 +57,6 @@ int		duplicate(t_node **stack);
 int		sorted(t_node **stack);
 int 	main(int argc, char **argv);
 int		count_chunks(t_node **stack, int current_chunk);
+int		calculate_rot_b(t_node **stack_b, int target);
 
 #endif
