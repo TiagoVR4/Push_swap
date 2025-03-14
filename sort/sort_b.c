@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/13 16:56:01 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/14 12:10:51 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 
 	rot_a = index_top(stack_a, pos);
 	rot_b = 0;
-	if (!stack_b)
+	if (*stack_b == NULL)
+	{
 		execute_rotations(stack_a, stack_b, rot_a);
+	}
 	else
 	{
 		rot_b = calculate_rot_b(stack_b, target);
 		combine_rotations(stack_a, stack_b, rot_a, rot_b);
 		call_push(stack_a, stack_b, 'b');
-		//adjust_stack(stack_b);
 	}
 
 }
@@ -44,7 +45,10 @@ int	calculate_rot_b(t_node **stack_b, int target)
 	while (pos_target < stack_size(stack_b))
 	{
 		if (temp->index < target)
+		{
+			rot_b = index_top(stack_b, pos_target);
 			return (rot_b);
+		}
 		else
 		{
 			pos_target++;
@@ -73,7 +77,7 @@ void	combine_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b)
 		min = -rot_a;
 		if (rot_b < rot_a)
 			min = -rot_b;
-		select_rotation(stack_a, stack_b, min, ' ');
+		select_rotation(stack_a, stack_b, min, 'v');
 		rot_a = rot_a + min;
 		rot_b = rot_b + min;
 	}
@@ -110,7 +114,7 @@ void	complete_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b
 	}
 	while(rot_b < 0)
 	{
-		call_push(NULL, stack_b, 'b');
+		call_rrotate(NULL, stack_b, 'b');
 		rot_b++;
 	}
 }
