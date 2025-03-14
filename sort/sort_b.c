@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/14 12:10:51 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/14 17:30:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 		combine_rotations(stack_a, stack_b, rot_a, rot_b);
 		call_push(stack_a, stack_b, 'b');
 	}
-
 }
 
 int	calculate_rot_b(t_node **stack_b, int target)
