@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/13 12:48:32 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/13 16:56:01 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 		rot_b = calculate_rot_b(stack_b, target);
 		combine_rotations(stack_a, stack_b, rot_a, rot_b);
 		call_push(stack_a, stack_b, 'b');
-		adjust_stack(stack_b);
+		//adjust_stack(stack_b);
 	}
 
 }
@@ -35,18 +35,16 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 int	calculate_rot_b(t_node **stack_b, int target)
 {
 	t_node	*temp;
-	t_node	*first;
 	int		rot_b;
 	int		pos_target;
 
 	temp = *stack_b;
-	first = *stack_b;
 	rot_b = 0;
 	pos_target = 0;
 	while (pos_target < stack_size(stack_b))
 	{
 		if (temp->index < target)
-			rot_b = 0;
+			return (rot_b);
 		else
 		{
 			pos_target++;
@@ -57,7 +55,7 @@ int	calculate_rot_b(t_node **stack_b, int target)
 	return (rot_b);
 }
 
-void	combine_rotations(stack_a, stack_b, rot_a, rot_b)
+void	combine_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b)
 {
 	int	min;
 
@@ -75,17 +73,17 @@ void	combine_rotations(stack_a, stack_b, rot_a, rot_b)
 		min = -rot_a;
 		if (rot_b < rot_a)
 			min = -rot_b;
-		select_rotation(stack_a, stack_b, min, 'rr');
+		select_rotation(stack_a, stack_b, min, ' ');
 		rot_a = rot_a + min;
 		rot_b = rot_b + min;
 	}
 	complete_rotations(stack_a, stack_b, rot_a, rot_b);
 }
-void	select_rotation(t_node **stack_a, t_node **stack_b, int	min, char *r)
+void	select_rotation(t_node **stack_a, t_node **stack_b, int	min, char flag)
 {
 	while (min > 0)
 		{
-			if (r = 'r')
+			if (flag == 'r')
 				call_rotate(stack_a, stack_b, 'r');
 			else
 				call_rrotate(stack_a, stack_b, 'r');
@@ -93,7 +91,26 @@ void	select_rotation(t_node **stack_a, t_node **stack_b, int	min, char *r)
 		}
 }
 
-void	complete_rotations(stack_a, stack_b, rot_a, rot_b)
+void	complete_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b)
 {
-
+	while (rot_a > 0)
+	{
+		call_rotate(stack_a, NULL, 'a');
+		rot_a--;
+	}
+	while (rot_b > 0)
+	{
+		call_rotate(NULL, stack_b, 'b');
+		rot_b--;
+	}
+	while (rot_a < 0)
+	{
+		call_rrotate(stack_a, NULL, 'a');
+		rot_a++;
+	}
+	while(rot_b < 0)
+	{
+		call_push(NULL, stack_b, 'b');
+		rot_b++;
+	}
 }

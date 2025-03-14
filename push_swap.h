@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/13 12:48:01 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/13 16:56:51 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target);
 void	assign_chunk(t_node **stack);
 void	assign_index(t_node **stack);
 void	execute_rotations(t_node **stack_a, t_node **stack_b, int pos);
-void	combine_rotations(stack_a, stack_b, rot_a, rot_b);
-void	complete_rotations(stack_a, stack_b, rot_a, rot_b);
+void	combine_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b);
+void	complete_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b);
+void	select_rotation(t_node **stack_a, t_node **stack_b, int	min, char flag);
 
 int		index_top(t_node **stack, int pos);
 int		ft_parsing(t_node **stack, int argc, char **argv);

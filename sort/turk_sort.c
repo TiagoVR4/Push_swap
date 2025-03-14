@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/13 12:48:06 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/13 16:53:06 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*current;
 	int		current_chunk;
-	int		num_chunks;
 	int		pos;
 	int		target;
 	
 	current = *stack_a;
 	target = 0;
 	current_chunk = 0;
-	num_chunks = (stack_size(stack_a) + 49) / 50;
 	pos = 0;
 	while (stack_size(stack_a) > 3)
 	{
