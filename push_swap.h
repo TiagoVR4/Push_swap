@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/13 16:56:51 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/18 17:06:13 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	execute_rotations(t_node **stack_a, t_node **stack_b, int pos);
 void	combine_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b);
 void	complete_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b);
 void	select_rotation(t_node **stack_a, t_node **stack_b, int	min, char flag);
+void	finish_sort(t_node **stack_a, t_node **stack_b);
+void	complete_last_chunk(t_node **stack_a, t_node **stack_b);
 
 int		index_top(t_node **stack, int pos);
 int		ft_parsing(t_node **stack, int argc, char **argv);

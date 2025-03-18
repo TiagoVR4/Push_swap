@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 18:21:35 by coder            ###   ########.fr       */
+/*   Updated: 2025/03/18 17:32:42 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	push_swap(t_node **stack_a, t_node **stack_b)
 		mini_sort(stack_a);	
 	else if (stack_size(stack_a) == 4 || stack_size(stack_a) == 5)
 		medium_sort(stack_a, stack_b);
-	//else
-	//	big_sort(stack_a, stack_b);
+	else
+		turk_sort(stack_a, stack_b);
 }
 
 int main(int argc, char **argv)
@@ -47,22 +47,14 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	assign_index(&stack_a);
-	assign_chunk(&stack_a);
-	ft_printf("Antes da ordenacao\n");
-	t_node	*first = stack_a;
-	while (stack_a)
-	{
-		ft_printf("Index:%d Value:%d \n", stack_a->index, stack_a->value);
-		stack_a = stack_a->next;
-		if (stack_a == first)
-			break;
-	}
+	assign_chunk(&stack_a);	ft_printf("Antes da ordenacao\n");
 	push_swap(&stack_a, &stack_b);
-	*first = *stack_a;
+	t_node *first = stack_a;
+	
 	ft_printf("Depois da ordenacao\n");
 	while (stack_a)
 	{
-		ft_printf("Index:%d Value:%d chunk:%d \n", stack_a->index, stack_a->value, stack_a->chunk);
+		ft_printf("Index:%d Value:%d Chunk:%d\n", stack_a->index, stack_a->value, stack_a->chunk);
 		stack_a = stack_a->next;
 		if (stack_a == first)
 			break;

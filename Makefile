@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+         #
+#    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/13 12:48:05 by tiagvr           ###   ########.fr        #
+#    Updated: 2025/03/18 17:06:04 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC =  push_swap.c \
 		sort/turk_sort.c \
 		sort/sort_b.c \
 		sort/sorted.c \
+		sort/finish_sort.c \
 
 OBJ = $(SRC:.c=.o)
 
