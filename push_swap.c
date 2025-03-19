@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/18 17:32:42 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/19 12:30:30 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,8 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	assign_index(&stack_a);
-	assign_chunk(&stack_a);	ft_printf("Antes da ordenacao\n");
+	assign_chunk(&stack_a);
 	push_swap(&stack_a, &stack_b);
-	t_node *first = stack_a;
-	
-	ft_printf("Depois da ordenacao\n");
-	while (stack_a)
-	{
-		ft_printf("Index:%d Value:%d Chunk:%d\n", stack_a->index, stack_a->value, stack_a->chunk);
-		stack_a = stack_a->next;
-		if (stack_a == first)
-			break;
-	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

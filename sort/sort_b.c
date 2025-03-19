@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/19 11:36:23 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/19 12:40:10 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 		rot_b = calculate_rot_b(stack_b, target);
 		combine_rotations(stack_a, stack_b, rot_a, rot_b);
 		call_push(stack_a, stack_b, 'b');
+		int max_pos = index_top(stack_b, stack_size(stack_b) - 1);
+		if (max_pos <= stack_size(stack_b) / 2)
+		{
+			while (max_pos-- > 0)
+				call_rotate(NULL, stack_b, 'b');
+		}
+		else
+		{
+			while (max_pos++ < stack_size(stack_b))
+				call_rrotate(NULL, stack_b, 'b');			
+		}
 	}
 }
 
@@ -44,18 +55,16 @@ int	calculate_rot_b(t_node **stack_b, int target)
 	pos_target = 0;
 	while (pos_target < stack_size(stack_b))
 	{
-		if (temp->index < target)
+		if (temp->index > target && temp->prev->index < target)
 		{
 			rot_b = index_top(stack_b, pos_target);
 			return (rot_b);
 		}
-		else
-		{
-			pos_target++;
-			temp = temp->next;
-		}
+		pos_target++;
+		temp = temp->next;
 	}
-	rot_b = index_top(stack_b, pos_target);
+	if (target < (*stack_b)->index || target > (*stack_b)->prev->index)
+		rot_b = index_top(stack_b, pos_target);
 	return (rot_b);
 }
 
