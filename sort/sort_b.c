@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/17 11:24:26 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/19 11:36:23 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	combine_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b)
 	else if( rot_a < 0 && rot_b < 0)
 	{
 		min = -rot_a;
-		if (rot_b < rot_a)
+		if (-rot_b < -rot_a)
 			min = -rot_b;
 		select_rotation(stack_a, stack_b, min, 'v');
 		rot_a = rot_a + min;
