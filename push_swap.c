@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/19 15:49:18 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:12:31 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int main(int argc, char **argv)
 	assign_index(&stack_a);
 	assign_chunk(&stack_a);
 	push_swap(&stack_a, &stack_b);
+	print_stack(stack_a, "A after sort");
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

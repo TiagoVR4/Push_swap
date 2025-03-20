@@ -6,7 +6,7 @@
 #    By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 16:21:20 by tiagalex          #+#    #+#              #
-#    Updated: 2025/03/18 17:06:04 by tiagalex         ###   ########.fr        #
+#    Updated: 2025/03/20 16:16:45 by tiagalex         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC =  push_swap.c \
 		operations/push.c \
 		operations/rotate.c \
 		operations/rrotate.c \
+		sort/sort_util.c \
 		sort/mini_sort.c \
 		sort/medium_sort.c \
 		sort/turk_sort.c \

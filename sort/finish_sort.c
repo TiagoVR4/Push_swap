@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/19 17:31:35 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:08:12 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,35 @@
 
 void	finish_sort(t_node **stack_a, t_node **stack_b)
 {
-	int	pos;
-	int	rot;
-
-	pos = find_pos(stack_b, find_max_index(stack_b));
-	rot = index_top(stack_b, pos);
+	complete_last_chunk(stack_a, stack_b);
 	while (*stack_b)
-	{
-		if (rot > 0)
-		{
-			while (rot > 0)
-			{
-				call_rotate(NULL, stack_b, 'b');
-				rot--;
-			}
-		}
-		else
-		{
-			while (rot < 0)
-			{
-				call_rrotate(NULL, stack_b, 'b');
-				rot++;
-			}
-		}
 		call_push(stack_a, stack_b, 'a');
+}
+
+void	complete_last_chunk(t_node **stack_a, t_node **stack_b)
+{
+	int		last_chunk;
+	int		target;
+	int		pos;
+	t_node	*current_a;
+	t_node	*current_b;
+
+	last_chunk = (*stack_a)->prev->chunk;
+	current_b = *stack_b;
+	while (current_b->chunk == last_chunk)
+	{
+		target = current_b->index;
+		pos = 0;
+		current_a = *stack_a;
+		while(current_a->index < target && current_a->next != *stack_a)
+		{
+			pos++;
+			current_a = current_a->next;
+		}
+		if (pos == stack_size(stack_a))
+			pos--;
+		execute_rotations(stack_a, stack_b, pos, 'a');
+		call_push(stack_a, stack_b, 'a');
+		current_b = *stack_b;
 	}
 }
