@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/20 17:00:16 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/21 18:05:24 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 
 	rot_a = index_top(stack_a, pos);
 	rot_b = 0;
-
 	execute_rotations(stack_a, NULL, rot_a, 'a');
 	if (stack_size(stack_b) >= 3)
 	{
@@ -98,6 +97,7 @@ void	complete_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b
 		rot_b++;
 	}
 }
+
 void	select_rotation(t_node **stack_a, t_node **stack_b, int	min, char flag)
 {
 	while (min > 0)
