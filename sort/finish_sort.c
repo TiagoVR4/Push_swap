@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/20 16:08:12 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:26:47 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	finish_sort(t_node **stack_a, t_node **stack_b)
 {
 	complete_last_chunk(stack_a, stack_b);
+	final_adjust(stack_a);
 	while (*stack_b)
 		call_push(stack_a, stack_b, 'a');
 }
@@ -45,4 +46,35 @@ void	complete_last_chunk(t_node **stack_a, t_node **stack_b)
 		call_push(stack_a, stack_b, 'a');
 		current_b = *stack_b;
 	}
+}
+
+void	final_adjust(t_node **stack)
+{
+	int		index_min;
+	int		pos;
+	int		rotations;
+
+	index_min = find_min_index(stack);
+	pos = find_pos(stack, index_min);
+	rotations = index_top(stack, pos);
+	execute_rotations(NULL, stack, rotations, 'b');
+}
+
+int	find_min_index(t_node **stack)
+{
+	t_node	*current;
+	int		min_index;
+	int		flag;
+
+	current = *stack;
+	min_index = current->index;
+	flag = 1;
+	while (flag || current != *stack)
+	{
+		flag = 0;
+		if (current->index < min_index)
+			min_index = current->index;
+		current = current->next;
+	}
+	return (min_index);
 }
