@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:53:44 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/20 17:01:12 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:57:50 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,12 @@ void	adjust_b(t_node **stack)
 {
 	int		index_max;
 	int		pos;
+	int		rotations;
 
 	index_max = find_max_index(stack);
 	pos = find_pos(stack, index_max);
-	execute_rotations(NULL, stack, pos, 'b');
-	
+	rotations = index_top(stack, pos);
+	execute_rotations(NULL, stack, rotations, 'b');
 }
 
 // delete when is over!!!!
