@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/24 18:24:06 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/25 12:21:13 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	combine_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b)
 void	complete_rotations(t_node **stack_a, t_node **stack_b, int rot_a, int rot_b);
 void	adjust_b(t_node **stack);
 void	finish_sort(t_node **stack_a, t_node **stack_b);
-void	complete_last_chunk(t_node **stack_a, t_node **stack_b);
 void	final_adjust(t_node **stack);
 void	assign_chunk(t_node **stack);
 void	assign_index(t_node **stack);
@@ -65,6 +64,7 @@ int		sorted(t_node **stack);
 int 	main(int argc, char **argv);
 int		count_chunks(t_node **stack, int current_chunk);
 int		calculate_rot_b(t_node **stack_b, int target);
+int		calculate_rot_a(t_node **stack_a, int target);
 int		find_pos(t_node **stack, int target_index);
 int		find_min_index(t_node **stack);
 int		find_max_index(t_node **stack);

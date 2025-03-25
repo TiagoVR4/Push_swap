@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/25 00:17:01 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/25 14:10:29 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,45 @@
 
 void	finish_sort(t_node **stack_a, t_node **stack_b)
 {
-	complete_last_chunk(stack_a, stack_b);
-	final_adjust(stack_a);
+	t_node	*current_b;
+	int		target;
+	int		last_chunk;
+	int		rot_a;
+	
+	current_b = (*stack_b);
+	last_chunk = (*stack_a)->chunk;
+	while (last_chunk == current_b->chunk)
+	{
+		target = (*stack_b)->index;
+		rot_a = calculate_rot_a(stack_a, target);
+		execute_rotations(stack_a, NULL, rot_a, 'a');
+		call_push(stack_a, stack_b, 'a');
+		final_adjust(stack_a);
+		print_stack(*stack_a, "finish_sort each final_adjust");
+		current_b = (*stack_b);
+	}
+	print_stack(*stack_b, "finish_sort_a");
 	while (*stack_b)
 		call_push(stack_a, stack_b, 'a');
 }
 
-void	complete_last_chunk(t_node **stack_a, t_node **stack_b)
+int	calculate_rot_a(t_node **stack_a, int target)
 {
-	int		last_chunk;
-	int		target;
-	int		pos;
-	t_node	*current_a;
-	t_node	*current_b;
+	t_node	*temp;
+	int		pos_target;
 
-	last_chunk = (*stack_a)->prev->chunk;
-	current_b = *stack_b;
-	while (current_b->chunk == last_chunk)
+	temp = *stack_a;
+	pos_target = 0;
+	if (target < find_min_index(stack_a) || target > find_max_index(stack_a))
+		return (0);
+	while (pos_target < stack_size(stack_a))
 	{
-		target = current_b->index;
-		pos = 0;
-		current_a = *stack_a;
-
-		if (current_a->index < target && current_a->next->index > target)
-		pos++;
-		current_a = current_a->next;
-
-		if (pos == stack_size(stack_a))
-			pos--;
-		execute_rotations(stack_a, stack_b, pos, 'a');
-		call_push(stack_a, stack_b, 'a');
-		current_b = *stack_b;
+		if (temp->index > target && temp->prev->index < target)
+			return (pos_target);
+		pos_target++;
+		temp = temp->next;
 	}
+	return (0);
 }
 
 void	final_adjust(t_node **stack)
@@ -57,7 +64,7 @@ void	final_adjust(t_node **stack)
 	index_min = find_min_index(stack);
 	pos = find_pos(stack, index_min);
 	rotations = index_top(stack, pos);
-	execute_rotations(NULL, stack, rotations, 'b');
+	execute_rotations(stack, NULL, rotations, 'a');
 }
 
 int	find_min_index(t_node **stack)

@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/24 13:04:46 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/25 13:19:28 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 	combine_rotations(stack_a, stack_b, rot_a, rot_b);
 	call_push(stack_a, stack_b, 'b');
 	adjust_b(stack_b);
-	
 }
 
 int	calculate_rot_b(t_node **stack_b, int target)
@@ -34,7 +33,7 @@ int	calculate_rot_b(t_node **stack_b, int target)
 
 	temp = *stack_b;
 	pos_target = 0;
-	if (target > find_max_index(stack_b))
+	if (target > find_max_index(stack_b) || stack_size(stack_b) == 1 || target < find_min_index(stack_b))
 		return (0);
 	while (pos_target < stack_size(stack_b))
 	{
