@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/25 17:39:59 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:46:14 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	int		current_chunk;
 	int		pos;
 	int		target;
-	
+
 	current = *stack_a;
 	target = 0;
 	current_chunk = 0;
@@ -41,7 +41,7 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	}
 }
 
-int		count_chunks(t_node **stack, int *current_chunk)
+int	count_chunks(t_node **stack, int *current_chunk)
 {
 	t_node	*current;
 	int		count;
@@ -54,12 +54,13 @@ int		count_chunks(t_node **stack, int *current_chunk)
 			count++;
 		current = current->next;
 		if (current == *stack)
-			break;
+			break ;
 	}
 	return (count);
 }
 
-void	update_chunk(t_node **stack_a, t_node **current, int *current_chunk, int *pos)
+void	update_chunk(t_node **stack_a, t_node **current,
+	int *current_chunk, int *pos)
 {
 	if (*current == *stack_a)
 	{
