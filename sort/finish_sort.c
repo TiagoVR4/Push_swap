@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/24 15:26:47 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/25 00:17:01 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	complete_last_chunk(t_node **stack_a, t_node **stack_b)
 		target = current_b->index;
 		pos = 0;
 		current_a = *stack_a;
-		while(current_a->index < target && current_a->next != *stack_a)
-		{
-			pos++;
-			current_a = current_a->next;
-		}
+
+		if (current_a->index < target && current_a->next->index > target)
+		pos++;
+		current_a = current_a->next;
+
 		if (pos == stack_size(stack_a))
 			pos--;
 		execute_rotations(stack_a, stack_b, pos, 'a');
