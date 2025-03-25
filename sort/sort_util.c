@@ -6,7 +6,7 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:53:44 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/24 11:57:50 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/25 11:25:35 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,6 @@ void	print_stack(t_node *stack, char *stack_name)
 		ft_printf("Index: %d, Value: %d, Chunk: %d\n", current->index, current->value, current->chunk);
 		current = current->next;
 		if (current == stack)
-		break;
+			break;
 	}
 }
