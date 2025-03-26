@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:53:44 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/25 11:25:35 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/26 12:08:08 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	assign_chunk(t_node **stack)
 	while (current)
 	{
 		current->chunk = current->index / chunk_size;
-		if(current->chunk >= num_chunks)
+		if (current->chunk >= num_chunks)
 			current->chunk = num_chunks - 1;
 		current = current->next;
 		if (current == *stack)
-			break;
+			break ;
 	}
 }
 
@@ -97,25 +97,4 @@ void	adjust_b(t_node **stack)
 	pos = find_pos(stack, index_max);
 	rotations = index_top(stack, pos);
 	execute_rotations(NULL, stack, rotations, 'b');
-}
-
-// delete when is over!!!!
-void	print_stack(t_node *stack, char *stack_name)
-{
-	t_node	*current;
-
-	if (!stack)
-	{
-		ft_printf("Stack %s is empty.\n", stack_name);
-		return;
-	}
-	ft_printf("Stack %s:\n", stack_name);
-	current = stack;
-	while (1)
-	{
-		ft_printf("Index: %d, Value: %d, Chunk: %d\n", current->index, current->value, current->chunk);
-		current = current->next;
-		if (current == stack)
-			break;
-	}
 }

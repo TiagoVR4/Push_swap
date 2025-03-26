@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:42:06 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/19 15:49:31 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:20:06 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_parsing(t_node **stack, int argc, char **argv)
 {
 	char	**array;
 	int		i;
-	int 	result;
+	int		result;
 
 	i = 1;
 	result = 0;
@@ -29,8 +29,8 @@ int	ft_parsing(t_node **stack, int argc, char **argv)
 		i = 0;
 	}
 	result = build_stack(stack, array, i);
-	 if (array != argv)
-	 	free(array);
+	if (array != argv)
+		free(array);
 	return (result);
 }
 
@@ -53,12 +53,13 @@ int	build_stack(t_node **stack, char **array, int i)
 	}
 	return (0);
 }
+
 int	contains_space(char *str)
 {
 	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (str[i] == ' ')
 			return (0);
@@ -91,9 +92,9 @@ int	invalid_number(char *str)
 
 int	duplicate(t_node **stack)
 {
-	t_node *current;
-	t_node *next_node;
-	
+	t_node	*current;
+	t_node	*next_node;
+
 	if (!(*stack) || (*stack)->next == *stack)
 		return (0);
 	current = *stack;

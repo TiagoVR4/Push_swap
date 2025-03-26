@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:48:40 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/19 15:51:06 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:03:04 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 int	sorted(t_node **stack)
 {
 	t_node	*first;
-
-	first = *stack;
-	if (!*stack || (*stack)->next == first)
-		return (1);
-
 	t_node	*content;
 
+	first = *stack;
 	content = *stack;
+	if (!*stack || (*stack)->next == first)
+		return (1);
 	while (first != content->next)
 	{
-		if(content->value > content->next->value)
-			return	(0);
+		if (content->value > content->next->value)
+			return (0);
 		content = content->next;
 	}
 	return (1);

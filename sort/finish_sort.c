@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/25 14:10:29 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/26 12:04:24 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	finish_sort(t_node **stack_a, t_node **stack_b)
 	int		target;
 	int		last_chunk;
 	int		rot_a;
-	
+
 	current_b = (*stack_b);
 	last_chunk = (*stack_a)->chunk;
 	while (last_chunk == current_b->chunk)

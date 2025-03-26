@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:42:14 by coder             #+#    #+#             */
-/*   Updated: 2025/02/25 11:18:23 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:01:27 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	push(t_node **src, t_node **dest)
 {
 	t_node	*first;
 	t_node	*second;
-  
+
 	if (!*src)
 		return ;
 	first = *src;
 	second = first->next;
-	if(first->next != first)
+	if (first->next != first)
 	{
 		first->prev->next = second;
 		second->prev = first->prev;
@@ -59,7 +59,7 @@ void	call_push(t_node **stack_a, t_node **stack_b, char flag)
 {
 	if (flag == 'a')
 	{
-		push(stack_b,stack_a);
+		push(stack_b, stack_a);
 		ft_printf("pa\n");
 	}
 	else if (flag == 'b')

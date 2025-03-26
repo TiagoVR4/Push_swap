@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:44:02 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/06 16:09:57 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:00:18 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap(t_node **stack)
 	t_node	*second;
 
 	if (!*stack || !(*stack)->next || (*stack)->next == *stack)
-    	return;
+		return ;
 	first = *stack;
 	second = first->next;
 	first->prev->next = second;
