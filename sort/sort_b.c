@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 10:32:50 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 18:54:55 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:20:29 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ void	sort_b(t_node **stack_a, t_node **stack_b, int pos, int target)
 {
 	int	rot_a;
 	int	rot_b;
+	int	pos_b;
 
 	rot_a = index_top(stack_a, pos);
 	rot_b = 0;
+	pos_b = 0;
 	if (*stack_b)
-		rot_b = calculate_rot_b(stack_b, target);
+	{
+		pos_b = calculate_rot_b(stack_b, target);
+		rot_b = index_top(stack_b, pos_b);
+	}
 	combine_rotations(stack_a, stack_b, rot_a, rot_b);
 	call_push(stack_a, stack_b, 'b');
 }
@@ -40,12 +45,12 @@ int	calculate_rot_b(t_node **stack_b, int target)
 		flag = 2;
 	while (pos_target < stack_size(stack_b))
 	{
-		if (temp->index == find_max_index(stack_b) && flag == 2)
+		if (flag == 2 && temp->index == find_max_index(stack_b))
 			return (pos_target);
-		if (temp->index < target && flag == 0)
+		if (temp->index < target && temp->prev->index > target && flag == 0)
 			return (pos_target);
 		pos_target++;
-		if (temp->index == find_min_index(stack_b) && flag == 1)
+		if (flag == 1 && temp->index == find_min_index(stack_b))
 			return (pos_target);
 		temp = temp->next;
 	}
