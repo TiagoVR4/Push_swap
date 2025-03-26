@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:53:44 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 13:53:09 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:38:39 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	adjust_b(t_node **stack)
 	execute_rotations(NULL, stack, rotations, 'b');
 }
 // delete when is over!!!!
-/* void	print_stack(t_node *stack, char *stack_name)
+void	print_stack(t_node *stack, char *stack_name)
 {
 	t_node	*current;
 
@@ -117,4 +117,4 @@ void	adjust_b(t_node **stack)
 		if (current == stack)
 			break;
 	}
-} */
+}
