@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Push Swap",
+      "type": "cppdbg",
+      "request": "launch",
+      "preLaunchTask": "make",
+	  "program": "/home/tiagalex/Desktop/project/Push_swap/push_swap",
+//      "args": ["-53", "-17", "84", "-29", "61", "-92", "38", "-4", "76", "-65", "12", "-88", "45", "-31", "97", "-8", "23", "-70", "59", "-41", "15", "-83", "67", "-20", "94", "-36", "50", "-73", "9", "-55", "82", "-27", "71", "-44", "6", "-99", "33", "-62", "87", "-14", "48", "-75", "21", "-90", "64", "-39", "78", "-2", "56", "-68", "30", "-85", "42", "-11", "95", "-25", "69", "-47", "3", "-80", "58", "-34", "91", "-19", "74", "-52", "16", "-77", "40", "-63", "89", "-5", "72", "-43", "26", "-96", "51", "-28", "83", "-13", "66", "-37", "98", "-22", "54", "-79", "7", "-60", "35", "-86", "46", "-10", "93", "-32", "81", "-49", "18", "-71", "62", "-24"],
+      "args": ["-53", "-17", "84", "-29", "61", "-92", "38", "-4", "76"],
+	"stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/home/tiagalex/Desktop/project/Push_swap",
+	  "program": "/home/tiagalex/Desktop/project/Push_swap/push_swap",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
