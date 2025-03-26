@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:32:46 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 12:17:23 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:11:17 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ int		calculate_rot_a(t_node **stack_a, int target);
 int		find_pos(t_node **stack, int target_index);
 int		find_min_index(t_node **stack);
 int		find_max_index(t_node **stack);
+
+// void	print_stack(t_node *stack, char *stack_name);
 
 #endif

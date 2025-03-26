@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 12:32:09 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 13:52:58 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	finish_sort(t_node **stack_a, t_node **stack_b)
 
 	current_b = (*stack_b);
 	last_chunk = (*stack_a)->chunk;
-	while (last_chunk == current_b->chunk)
+	while (current_b && last_chunk == current_b->chunk)
 	{
 		target = (*stack_b)->index;
 		rot_a = calculate_rot_a(stack_a, target);
