@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 12:18:15 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:31:52 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	push_swap(t_node **stack_a, t_node **stack_b)
 	else
 	{
 		turk_sort(stack_a, stack_b);
-		if (sorted(&stack_a) == 0)
-			mini_sort(&stack_a);
-		finish_sort(&stack_a, &stack_b);
+		if (sorted(stack_a) == 0)
+			mini_sort(stack_a);
+		finish_sort(stack_a, stack_b);
 	}
 }
 

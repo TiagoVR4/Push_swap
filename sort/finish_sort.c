@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 12:04:24 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:32:09 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ void	finish_sort(t_node **stack_a, t_node **stack_b)
 		execute_rotations(stack_a, NULL, rot_a, 'a');
 		call_push(stack_a, stack_b, 'a');
 		final_adjust(stack_a);
-		print_stack(*stack_a, "finish_sort each final_adjust");
 		current_b = (*stack_b);
 	}
-	print_stack(*stack_b, "finish_sort_a");
 	while (*stack_b)
 		call_push(stack_a, stack_b, 'a');
 }
