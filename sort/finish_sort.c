@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 19:35:43 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/27 12:25:49 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	finish_sort(t_node **stack_a, t_node **stack_b)
 	while (current_b && last_chunk == current_b->chunk)
 	{
 		target = (*stack_b)->index;
+		// print_stack(*stack_b, "Stack B"); // log
+		// ft_printf("Sorting: index target = %d\n", target); // log
+		// print_stack(*stack_a, "Stack A"); // log
 		rot_a = calculate_rot_a(stack_a, target);
 		execute_rotations(stack_a, NULL, rot_a, 'a');
 		call_push(stack_a, stack_b, 'a');

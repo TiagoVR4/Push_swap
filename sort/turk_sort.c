@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 19:39:10 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/27 11:06:48 by tiagvr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 		if (current->chunk == current_chunk)
 		{
 			target = current->index;
-			// ft_printf("Sorting: pos = %d, index target = %d\n", pos, target); // log
+			ft_printf("Sorting: pos = %d, index target = %d\n", pos, target); // log
 			sort_b(stack_a, stack_b, pos, target);
 			pos = 0;
 			current = *stack_a;
@@ -43,7 +43,7 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 			current = current->next;
 		}
 		update_chunk(stack_a, &current, &current_chunk, &pos);
-	  	// printf("Updated chunk: %d, pos: %d\n", current_chunk, pos); // log
+	  	printf("Updated chunk: %d, pos: %d\n", current_chunk, pos); // log
 	}
 }
 
