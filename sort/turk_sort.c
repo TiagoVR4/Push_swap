@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/27 16:05:26 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:46:09 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	pos = 0;
 	while (stack_size(stack_a) > 3)
 	{
+		// print_stack(*stack_b, "Stack B"); // log
 		// ft_printf("Current chunk: %d\n", current_chunk); // log
 		// print_stack(*stack_a, "Stack A"); // log
-		// print_stack(*stack_b, "Stack B"); // log
 
 		if (current->chunk == current_chunk)
 		{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:56:53 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/27 12:25:49 by tiagvr           ###   ########.fr       */
+/*   Updated: 2025/03/27 16:44:09 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,33 @@ void	finish_sort(t_node **stack_a, t_node **stack_b)
 	while (current_b && last_chunk == current_b->chunk)
 	{
 		target = (*stack_b)->index;
-		// print_stack(*stack_b, "Stack B"); // log
-		// ft_printf("Sorting: index target = %d\n", target); // log
-		// print_stack(*stack_a, "Stack A"); // log
 		rot_a = calculate_rot_a(stack_a, target);
 		execute_rotations(stack_a, NULL, rot_a, 'a');
 		call_push(stack_a, stack_b, 'a');
+		final_adjust(stack_a);
 		current_b = (*stack_b);
 	}
-	final_adjust(stack_a);
 	while (*stack_b)
 		call_push(stack_a, stack_b, 'a');
 }
-
 
 int	calculate_rot_a(t_node **stack_a, int target)
 {
 	t_node	*temp;
 	int		pos_target;
-	int		flag;
 
 	temp = *stack_a;
 	pos_target = 0;
-	flag = 0;
-	if (target < find_min_index(stack_a))
-		flag = 1;
-	else if (target > find_max_index(stack_a))
-		flag = 2;
+	if (target < find_min_index(stack_a) || target > find_max_index(stack_a))
+		return (0);
 	while (pos_target < stack_size(stack_a))
 	{
-		if (flag == 1 && temp->index == find_min_index(stack_a))
-			return (pos_target);
-		if (temp->index > target && temp->prev->index < target && flag == 0)
+		if (temp->index > target && temp->prev->index < target)
 			return (pos_target);
 		pos_target++;
-		if (flag == 2 && temp->index == find_max_index(stack_a))
-			return (pos_target);
 		temp = temp->next;
 	}
-	return (stack_size(stack_a));
+	return (0);
 }
 
 void	final_adjust(t_node **stack)
