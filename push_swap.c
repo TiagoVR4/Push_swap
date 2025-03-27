@@ -6,7 +6,11 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:50:37 by tiagalex          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/03/27 11:32:42 by tiagvr           ###   ########.fr       */
+=======
+/*   Updated: 2025/03/26 18:56:26 by tiagalex         ###   ########.fr       */
+>>>>>>> parent of b423f46 (fix sort_b, still need optimize sorting_a)
 /*                                                                            */
 /* ************************************************************************** */
 

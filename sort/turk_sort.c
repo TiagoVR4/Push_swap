@@ -6,7 +6,11 @@
 /*   By: tiagvr <tiagvr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:23:57 by tiagalex          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/03/27 11:06:48 by tiagvr           ###   ########.fr       */
+=======
+/*   Updated: 2025/03/26 18:58:05 by tiagalex         ###   ########.fr       */
+>>>>>>> parent of b423f46 (fix sort_b, still need optimize sorting_a)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +29,18 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 	pos = 0;
 	while (stack_size(stack_a) > 3)
 	{
-		// print_stack(*stack_b, "Stack B"); // log
 		// ft_printf("Current chunk: %d\n", current_chunk); // log
 		// print_stack(*stack_a, "Stack A"); // log
+		// print_stack(*stack_b, "Stack B"); // log
 
 		if (current->chunk == current_chunk)
 		{
 			target = current->index;
+<<<<<<< HEAD
 			ft_printf("Sorting: pos = %d, index target = %d\n", pos, target); // log
+=======
+			// ft_printf("Sorting: pos=%d, target=%d\n", pos, target); // log
+>>>>>>> parent of b423f46 (fix sort_b, still need optimize sorting_a)
 			sort_b(stack_a, stack_b, pos, target);
 			pos = 0;
 			current = *stack_a;
@@ -43,7 +51,11 @@ void	turk_sort(t_node **stack_a, t_node **stack_b)
 			current = current->next;
 		}
 		update_chunk(stack_a, &current, &current_chunk, &pos);
+<<<<<<< HEAD
 	  	printf("Updated chunk: %d, pos: %d\n", current_chunk, pos); // log
+=======
+	  //  printf("Updated chunk: %d, pos: %d\n", current_chunk, pos); // log
+>>>>>>> parent of b423f46 (fix sort_b, still need optimize sorting_a)
 	}
 }
 
