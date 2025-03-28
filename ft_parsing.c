@@ -6,7 +6,7 @@
 /*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:42:06 by tiagalex          #+#    #+#             */
-/*   Updated: 2025/03/26 12:20:06 by tiagalex         ###   ########.fr       */
+/*   Updated: 2025/03/28 15:04:28 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_parsing(t_node **stack, int argc, char **argv)
 	}
 	result = build_stack(stack, array, i);
 	if (array != argv)
-		free(array);
+		free_array(array);
 	return (result);
 }
 
