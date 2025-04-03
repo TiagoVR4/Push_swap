@@ -12,7 +12,7 @@ Push_swap is a project focused on sorting a stack of integers using a limited se
 
 1. Clone the repository:
 	```bash
-	git clone <repository_url>
+	git clone git@github.com:TiagoVR4/Push_swap.git
 	cd Push_swap
 	```
 2. Compile the program:
